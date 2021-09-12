@@ -44,7 +44,7 @@ This way, you don't have to care about using "git://" or "https://" when you are
 
 This usually happens when you are trying to clone some of the npm repositories.
 
-### How to revert back this to use git://
+### How to remove/revert back this to use git://
 You can edit the whole global config file by running ``` git config --global --edit ``` and delete the line manually.
 OR
 
