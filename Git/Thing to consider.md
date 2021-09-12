@@ -56,3 +56,8 @@ if any anyone need the reverse of this:
 
 ``` $ git config --global url."git://".insteadOf https:// ```
 
+## Good commit messages should:
+When you commit changes to your repository, the best practice for commit message should be as below;
+  * Be short. ~50 characters is ideal.
+  * Describe the change Introduced by the commit.
+  * Tell the story of how your project has evolved.
