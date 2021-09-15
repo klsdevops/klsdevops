@@ -519,16 +519,18 @@ klsdevops/.git/refs/heads (GIT_DIR!)$
 **NOTE**: _If multiple branches are updated in the remote & we do a fetch from local, all the changes will be downloaded to local repo. But in order to get it reflected in the local branches and working directory, you will have to perform merge with each **remote->local** branches._
 
 	
-While doing a git fetch you could see the difference & decide if you want to proceed with a merge or not,
+## While doing a git fetch you could see the difference & decide if you want to proceed with a merge or not,
+
+### 1. Before bringing changes from remote, see the diff:
+![image](https://user-images.githubusercontent.com/90503660/133364623-229faa90-4bb3-4e14-b72a-7cd50df08197.png)
+
+### 2. make some changes in remote
+![image](https://user-images.githubusercontent.com/90503660/133365464-a93c2549-1e03-4efe-aab8-2b9591940467.png)
 	
-	### Before bringing changes from remote, see the diff:
-	![image](https://user-images.githubusercontent.com/90503660/133364623-229faa90-4bb3-4e14-b72a-7cd50df08197.png)
+### 3. After fetching the remote changes, again see the diff:
+![image](https://user-images.githubusercontent.com/90503660/133364885-576f8741-e88e-4c39-b1c6-7375c401bb80.png)
 
-	### make some changes in remote
-	![image](https://user-images.githubusercontent.com/90503660/133365464-a93c2549-1e03-4efe-aab8-2b9591940467.png)
+You could see the line added with a "+" symbol in GREEN colour.
 
-	
-	### After fetching the remote changes, again see the diff:
-	![image](https://user-images.githubusercontent.com/90503660/133364885-576f8741-e88e-4c39-b1c6-7375c401bb80.png)
-
+### 4. if you are happy with the updates, you can merge those changes.
 	
