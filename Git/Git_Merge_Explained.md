@@ -1,0 +1,162 @@
+# **Git Merge:**
+
+* The git merge command lets you take the independent lines of development created by git branch and integrate them into a single branch.
+* Git merge will combine multiple sequences of commits into one unified history.
+* In the most frequent use cases, git merge is used to combine two branches.
+* During merge conflicts, Git will need user intervention to continue. 
+
+**Preparing to merge:** Before performing a merge there are a couple of preparation steps to take to ensure the merge goes smoothly.
+
+**Confirm the receiving branch:** Execute git status to ensure that HEAD is pointing to the correct merge-receiving branch. 
+
+  ```$ git checkout main```
+  
+**Fetch latest remote commits:** Make sure the receiving branch and the merging branch are up-to-date with the latest remote changes.
+
+```$ git pull_ OR _git fetch```
+  
+**Merging:** A merge can be initiated by executing git merge where  is the name of the branch that will be merged into the receiving branch.
+
+```$ git merge feature_branch```
+
+## Fast Forward Merge
+* A fast-forward merge can occur when there is a linear path from the current branch tip to the target branch.
+* Instead of “actually” merging the branches, all Git has to do to integrate the histories is move (i.e., “fast forward”) the current branch tip up to the target branch tip.
+
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/90503660/133953717-10804480-1faf-4534-9fd0-41157709cb96.png"> 
+</p>
+  
+```
+### CREATE A NEW FILE AND COMMIT TO THE REPO
+
+klsdevops@DESKTOP-IPOC5HT MINGW64 ~/Desktop/test (master)
+$ touch test
+
+klsdevops@DESKTOP-IPOC5HT MINGW64 ~/Desktop/test (master)
+$ git status
+On branch master
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        test
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+klsdevops@DESKTOP-IPOC5HT MINGW64 ~/Desktop/test (master)
+$ git add .
+
+klsdevops@DESKTOP-IPOC5HT MINGW64 ~/Desktop/test (master)
+$ git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+        new file:   test
+
+
+klsdevops@DESKTOP-IPOC5HT MINGW64 ~/Desktop/test (master)
+$ git commit -m "first commit"
+[master (root-commit) cc9cab9] first commit
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 test
+
+klsdevops@DESKTOP-IPOC5HT MINGW64 ~/Desktop/test (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+klsdevops@DESKTOP-IPOC5HT MINGW64 ~/Desktop/test (master)
+$ git branch
+* master
+
+### CREATE A NEW FEATURE BRANCH "new-feature" 
+
+klsdevops@DESKTOP-IPOC5HT MINGW64 ~/Desktop/test (master)
+$ git checkout -b new-feature master
+Switched to a new branch 'new-feature'
+
+### UPDATE A FILE IN THE NEW FEATURE BRANCH AND COMMIT
+
+klsdevops@DESKTOP-IPOC5HT MINGW64 ~/Desktop/test (new-feature)
+$ vi test
+
+klsdevops@DESKTOP-IPOC5HT MINGW64 ~/Desktop/test (new-feature)
+$ git add .
+warning: LF will be replaced by CRLF in test.
+The file will have its original line endings in your working directory
+
+klsdevops@DESKTOP-IPOC5HT MINGW64 ~/Desktop/test (new-feature)
+$ git commit -m "second commit"
+[new-feature afaf55f] second commit
+ 1 file changed, 1 insertion(+)
+
+klsdevops@DESKTOP-IPOC5HT MINGW64 ~/Desktop/test (new-feature)
+$ git branch
+  master
+* new-feature
+
+klsdevops@DESKTOP-IPOC5HT MINGW64 ~/Desktop/test (new-feature)
+$ git status
+On branch new-feature
+nothing to commit, working tree clean
+
+### CHECK THE COMMIT HISTORY. YOU COULD SEE A NEW COMMIT HASH HAS BEEN CREATED AND THE HEAD OF FEATURE BRANCH IS POINTING TO IT
+
+klsdevops@DESKTOP-IPOC5HT MINGW64 ~/Desktop/test (new-feature)
+$ git log --oneline
+afaf55f (HEAD -> new-feature) second commit
+cc9cab9 (master) first commit
+
+### CHECKOUT TO "master" BRANCH AND CHECK THE COMMIT HISTORY. YOU COULD SEE ONLY ONE COMMIT & HEAD OF MASTER IS POINTING TO IT.
+
+klsdevops@DESKTOP-IPOC5HT MINGW64 ~/Desktop/test (new-feature)
+$ git checkout master
+Switched to branch 'master'
+
+klsdevops@DESKTOP-IPOC5HT MINGW64 ~/Desktop/test (master)
+$ git log --oneline
+cc9cab9 (HEAD -> master) first commit
+
+### MERGE THE FEATURE BRANCH TO MASTER BRANCH.
+
+klsdevops@DESKTOP-IPOC5HT MINGW64 ~/Desktop/test (master)
+$ git merge new-feature
+Updating cc9cab9..afaf55f
+Fast-forward
+ test | 1 +
+ 1 file changed, 1 insertion(+)
+
+### CHECK THE COMMIT HISTORY
+
+klsdevops@DESKTOP-IPOC5HT MINGW64 ~/Desktop/test (master)
+$ git log --oneline
+afaf55f (HEAD -> master, new-feature) second commit
+cc9cab9 first commit
+
+### YOU COULD SEE THE HEAD HAS POINTED TO THE SAME COMMIT "afaf55f" AND BOTH MASTER AND FEATURE BRANCHES ARE POINTING TO THE SAME COMMIT.
+### IN EFFECT, IT'S JUST AS FAST FORWARDING (MOVING) THE HEAD TO THE LATEST COMMIT OF THE TARGET BRANCH.
+
+### NOW, DELETE THE FEATURE BRANCH AS IT IS ALREADY MERGED TO THE MASTER.
+
+klsdevops@DESKTOP-IPOC5HT MINGW64 ~/Desktop/test (master)
+$ git branch -d new-feature
+Deleted branch new-feature (was afaf55f).
+
+klsdevops@DESKTOP-IPOC5HT MINGW64 ~/Desktop/test (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+### CHECK THE COMMIT TO SEE THE HEAD OF MASTER IS POINTING TO THE LATEST COMMIT
+
+klsdevops@DESKTOP-IPOC5HT MINGW64 ~/Desktop/test (master)
+$ git log --oneline
+afaf55f (HEAD -> master) second commit
+cc9cab9 first commit
+
+```
