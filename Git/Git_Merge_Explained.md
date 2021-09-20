@@ -160,3 +160,165 @@ afaf55f (HEAD -> master) second commit
 cc9cab9 first commit
 
 ```
+
+## 3-Way Merge
+
+```
+### VERIFY THE COMMIT HISTORY TO SEE THE CURRENT STATUS
+
+klsdevops@DESKTOP-IPOC5HT MINGW64 ~/Desktop/test (master)
+$ git log --oneline
+afaf55f (HEAD -> master) second commit
+cc9cab9 first commit
+
+### CREATE A NEW FEATURE BRANCH "new-feature" 
+
+klsdevops@DESKTOP-IPOC5HT MINGW64 ~/Desktop/test (master)
+$ git checkout -b new-feature master
+Switched to a new branch 'new-feature'
+
+### UPDATE SOME FILE AND DO A COMMIT
+
+klsdevops@DESKTOP-IPOC5HT MINGW64 ~/Desktop/test (new-feature)
+$ vi test
+
+klsdevops@DESKTOP-IPOC5HT MINGW64 ~/Desktop/test (new-feature)
+$ git status
+On branch new-feature
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   test
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+klsdevops@DESKTOP-IPOC5HT MINGW64 ~/Desktop/test (new-feature)
+$ git add .
+
+klsdevops@DESKTOP-IPOC5HT MINGW64 ~/Desktop/test (new-feature)
+$ git status
+On branch new-feature
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   test
+
+klsdevops@DESKTOP-IPOC5HT MINGW64 ~/Desktop/test (new-feature)
+$ git commit -m "third commit"
+[new-feature 523551e] third commit
+ 1 file changed, 1 insertion(+)
+
+klsdevops@DESKTOP-IPOC5HT MINGW64 ~/Desktop/test (new-feature)
+$ git status
+On branch new-feature
+nothing to commit, working tree clean
+
+klsdevops@DESKTOP-IPOC5HT MINGW64 ~/Desktop/test (new-feature)
+$ git log --oneline
+523551e (HEAD -> new-feature) third commit
+afaf55f (master) second commit
+cc9cab9 first commit
+
+klsdevops@DESKTOP-IPOC5HT MINGW64 ~/Desktop/test (new-feature)
+$
+
+### CHECKOUT TO MASTER AND PERFORM ANOTHER FILE CHANGE & COMMIT
+
+klsdevops@DESKTOP-IPOC5HT MINGW64 ~/Desktop/test (new-feature)
+$ git checkout master
+Switched to branch 'master'
+
+klsdevops@DESKTOP-IPOC5HT MINGW64 ~/Desktop/test (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+klsdevops@DESKTOP-IPOC5HT MINGW64 ~/Desktop/test (master)
+$ git log --oneline
+afaf55f (HEAD -> master) second commit
+cc9cab9 first commit
+
+### CREATE A NEW FILE IN MASTER BRANCH & COMMIT IT
+
+klsdevops@DESKTOP-IPOC5HT MINGW64 ~/Desktop/test (master)
+$ vi file2
+
+klsdevops@DESKTOP-IPOC5HT MINGW64 ~/Desktop/test (master)
+$ git status
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        file2
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+klsdevops@DESKTOP-IPOC5HT MINGW64 ~/Desktop/test (master)
+$ git add .
+warning: LF will be replaced by CRLF in file2.
+The file will have its original line endings in your working directory
+
+klsdevops@DESKTOP-IPOC5HT MINGW64 ~/Desktop/test (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   file2
+
+
+klsdevops@DESKTOP-IPOC5HT MINGW64 ~/Desktop/test (master)
+$ git commit -m "fourth commit"
+[master 2ba32d7] fourth commit
+ 1 file changed, 1 insertion(+)
+ create mode 100644 file2
+
+klsdevops@DESKTOP-IPOC5HT MINGW64 ~/Desktop/test (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+klsdevops@DESKTOP-IPOC5HT MINGW64 ~/Desktop/test (master)
+$
+
+### VERIFY THE COMMIT HISTORY, YOU COULD NOT SEE THE "third commit" OF FEATURE BRANCH HERE AS IT IS STILL NOT MERGED TO MASTER.
+
+klsdevops@DESKTOP-IPOC5HT MINGW64 ~/Desktop/test (master)
+$ git log --oneline
+2ba32d7 (HEAD -> master) fourth commit
+afaf55f second commit
+cc9cab9 first commit
+
+klsdevops@DESKTOP-IPOC5HT MINGW64 ~/Desktop/test (master)
+$
+
+### MERGE THE FEATURE BRANCH CHANGES TO MASTER
+
+klsdevops@DESKTOP-IPOC5HT MINGW64 ~/Desktop/test (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+klsdevops@DESKTOP-IPOC5HT MINGW64 ~/Desktop/test (master)
+$ git merge new-feature
+Merge made by the 'recursive' strategy.
+ test | 1 +
+ 1 file changed, 1 insertion(+)
+
+klsdevops@DESKTOP-IPOC5HT MINGW64 ~/Desktop/test (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+klsdevops@DESKTOP-IPOC5HT MINGW64 ~/Desktop/test (master)
+$ git log --oneline
+ed2cd74 (HEAD -> master) Merge branch 'new-feature'
+2ba32d7 fourth commit
+523551e (new-feature) third commit
+afaf55f second commit
+cc9cab9 first commit
+
+klsdevops@DESKTOP-IPOC5HT MINGW64 ~/Desktop/test (master)
+$
+
+### HERE YOU COULD SEE THE "third commit" ON "new-feature" BRANCH AND A NEW MERGE COMMIT "ed2cd74" HAS BEEN CREATED RATHER THAN A FAST FORWARD COMMIT.
+### THIS REQUIRES A 3-WAY MERGE BECAUSE "master" PROGRESSES WHILE THE FEATURE IS IN-PROGRESS. THIS IS A COMMON SCENARIO FOR LARGE FEATURES OR WHEN SEVERAL DEVELOPERS ARE WORKING ON A PROJECT SIMULTANEOUSLY.
+
+```
