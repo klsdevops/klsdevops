@@ -163,6 +163,14 @@ cc9cab9 first commit
 
 ## 3-Way Merge
 
+* A 3-way merges use a dedicated commit to tie together the two histories.
+* Git uses three commits to generate the merge commit: the two branch tips and their common ancestor.
+* This is a common scenario for large features or when several developers are working on a project simultaneously.
+
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/90503660/134101319-849370e7-0525-474a-9553-d614c0b7e445.png"> 
+</p>
+
 ```
 ### VERIFY THE COMMIT HISTORY TO SEE THE CURRENT STATUS
 
@@ -320,5 +328,29 @@ $
 
 ### HERE YOU COULD SEE THE "third commit" ON "new-feature" BRANCH AND A NEW MERGE COMMIT "ed2cd74" HAS BEEN CREATED RATHER THAN A FAST FORWARD COMMIT.
 ### THIS REQUIRES A 3-WAY MERGE BECAUSE "master" PROGRESSES WHILE THE FEATURE IS IN-PROGRESS. THIS IS A COMMON SCENARIO FOR LARGE FEATURES OR WHEN SEVERAL DEVELOPERS ARE WORKING ON A PROJECT SIMULTANEOUSLY.
+
+### NOW, DELETE THE FEATURE BRANCH "new-feature"
+
+klsdevops@DESKTOP-IPOC5HT MINGW64 ~/Desktop/test (master)
+$ git branch
+* master
+  new-feature
+
+klsdevops@DESKTOP-IPOC5HT MINGW64 ~/Desktop/test (master)
+$ git branch -d new-feature
+Deleted branch new-feature (was 523551e).
+
+klsdevops@DESKTOP-IPOC5HT MINGW64 ~/Desktop/test (master)
+$ git branch
+* master
+
+klsdevops@DESKTOP-IPOC5HT MINGW64 ~/Desktop/test (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+klsdevops@DESKTOP-IPOC5HT MINGW64 ~/Desktop/test (master)
+$
+
 
 ```
