@@ -322,5 +322,11 @@ Deleted branch new_branch_to_merge_later (was 50581cb).
 
 klsdevops@DESKTOP-IPOC5HT MINGW64 ~/Desktop/git-merge-test (master)
 $
+klsdevops@DESKTOP-IPOC5HT MINGW64 ~/Desktop/git-merge-test (master)
+$ git branch
+* master
+
+klsdevops@DESKTOP-IPOC5HT MINGW64 ~/Desktop/git-merge-test (master)
+$
 
 ```
