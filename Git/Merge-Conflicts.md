@@ -309,4 +309,18 @@ klsdevops@DESKTOP-IPOC5HT MINGW64 ~/Desktop/git-merge-test (master)
 $
 
 ###Git will see that the conflict has been resolved and creates a new merge commit to finalize the merge.
+
+### Delete the feature branch
+klsdevops@DESKTOP-IPOC5HT MINGW64 ~/Desktop/git-merge-test (master)
+$ git branch
+* master
+  new_branch_to_merge_later
+
+klsdevops@DESKTOP-IPOC5HT MINGW64 ~/Desktop/git-merge-test (master)
+$ git branch -d new_branch_to_merge_later
+Deleted branch new_branch_to_merge_later (was 50581cb).
+
+klsdevops@DESKTOP-IPOC5HT MINGW64 ~/Desktop/git-merge-test (master)
+$
+
 ```
