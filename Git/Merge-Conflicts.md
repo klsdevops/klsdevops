@@ -300,5 +300,13 @@ de2f8a0 appended content to merge.txt
 klsdevops@DESKTOP-IPOC5HT MINGW64 ~/Desktop/git-merge-test (master)
 $
 
+klsdevops@DESKTOP-IPOC5HT MINGW64 ~/Desktop/git-merge-test (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+klsdevops@DESKTOP-IPOC5HT MINGW64 ~/Desktop/git-merge-test (master)
+$
+
 ###Git will see that the conflict has been resolved and creates a new merge commit to finalize the merge.
 ```
