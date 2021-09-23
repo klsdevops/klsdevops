@@ -463,3 +463,5 @@ klsdevops@DESKTOP-IPOC5HT MINGW64 ~/Desktop/git-test (test-merge)
 $
 
 ```
+
+### Executing _git merge_ with the --_abort_ option will exit from the merge process and return the branch to the state before the merge began.
