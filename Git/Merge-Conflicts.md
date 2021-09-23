@@ -406,3 +406,60 @@ klsdevops@DESKTOP-IPOC5HT MINGW64 ~/Desktop/git-merge-test (master)
 $
 
 ```
+
+# Scenario: When you have a merge conflict and you want to abort the conflict,
+
+```
+
+klsdevops@DESKTOP-IPOC5HT MINGW64 ~/Desktop/git-test (master|MERGING)
+$ git status
+On branch master
+You have unmerged paths.
+  (fix conflicts and run "git commit")
+  (use "git merge --abort" to abort the merge)
+
+Unmerged paths:
+  (use "git add <file>..." to mark resolution)
+        both modified:   testfile
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+klsdevops@DESKTOP-IPOC5HT MINGW64 ~/Desktop/git-test (master|MERGING)
+$ cat testfile
+<<<<<<< HEAD
+ this is a test line from master
+ this an update from the second developer
+=======
+this is a edit from merge branch
+>>>>>>> test-merge
+
+klsdevops@DESKTOP-IPOC5HT MINGW64 ~/Desktop/git-test (master|MERGING)
+$ git merge --abort
+
+klsdevops@DESKTOP-IPOC5HT MINGW64 ~/Desktop/git-test (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+klsdevops@DESKTOP-IPOC5HT MINGW64 ~/Desktop/git-test (master)
+$ cat testfile
+ this is a test line from master
+ this an update from the second developer
+
+klsdevops@DESKTOP-IPOC5HT MINGW64 ~/Desktop/git-test (master)
+$ git checkout test-merge
+Switched to branch 'test-merge'
+
+klsdevops@DESKTOP-IPOC5HT MINGW64 ~/Desktop/git-test (test-merge)
+$ cat testfile
+this is a edit from merge branch
+
+klsdevops@DESKTOP-IPOC5HT MINGW64 ~/Desktop/git-test (test-merge)
+$ git status
+On branch test-merge
+nothing to commit, working tree clean
+
+klsdevops@DESKTOP-IPOC5HT MINGW64 ~/Desktop/git-test (test-merge)
+$
+
+```
