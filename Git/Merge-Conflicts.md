@@ -1,8 +1,8 @@
 # Creating a merge conflict
 
-```
+### Create a new directory named git-merge-test, change to that directory, and initialize it as a new Git repo.
 
-###Create a new directory named git-merge-test, change to that directory, and initialize it as a new Git repo.
+```
 
 klsdevops@DESKTOP-IPOC5HT MINGW64 ~/Desktop
 $ mkdir git-merge-test
@@ -14,7 +14,11 @@ klsdevops@DESKTOP-IPOC5HT MINGW64 ~/Desktop/git-merge-test
 $ git init .
 Initialized empty Git repository in C:/Users/sujith/Desktop/git-merge-test/.git/
 
-###Create a new text file merge.txt with some content in it.  
+```
+
+### Create a new text file merge.txt with some content in it.  
+
+```
 
 klsdevops@DESKTOP-IPOC5HT MINGW64 ~/Desktop/git-merge-test (master)
 $ echo "this is some content to mess with" > merge.txt
@@ -31,7 +35,11 @@ Untracked files:
 
 nothing added to commit but untracked files present (use "git add" to track)
 
-###Add merge.txt to the repo and commit it.
+```
+
+### stage the _merge.txt_ file and commit it.
+
+```
 
 klsdevops@DESKTOP-IPOC5HT MINGW64 ~/Desktop/git-merge-test (master)
 $ git add merge.txt
@@ -63,9 +71,13 @@ nothing to commit, working tree clean
 klsdevops@DESKTOP-IPOC5HT MINGW64 ~/Desktop/git-merge-test (master)
 $
 
-###Now we have a new repo with one branch main and a file merge.txt with content in it
+```
 
-###create a new branch to use as the conflicting merge.
+### Now we have a new repo with one branch _master_ and a file _merge.txt_ with content in it
+
+### create a new branch to use as the conflicting merge. Update some content to _merge.txt_ file & commit.
+
+```
 
 klsdevops@DESKTOP-IPOC5HT MINGW64 ~/Desktop/git-merge-test (master)
 $ git checkout -b new_branch_to_merge_later
@@ -93,6 +105,12 @@ $ git status
 On branch new_branch_to_merge_later
 nothing to commit, working tree clean
 
+```
+
+### Check the commit history, you could see both commit details.
+
+```
+
 klsdevops@DESKTOP-IPOC5HT MINGW64 ~/Desktop/git-merge-test (new_branch_to_merge_later)
 $ git log --oneline
 50581cb (HEAD -> new_branch_to_merge_later) edited the content of merge.txt to cause a conflict
@@ -100,6 +118,12 @@ $ git log --oneline
 
 klsdevops@DESKTOP-IPOC5HT MINGW64 ~/Desktop/git-merge-test (new_branch_to_merge_later)
 $
+
+```
+
+### Now, checkout to "_master_" branch and verify the commit history. You will see only the first commit details here.
+
+```
 
 klsdevops@DESKTOP-IPOC5HT MINGW64 ~/Desktop/git-merge-test (new_branch_to_merge_later)
 $ git checkout master
@@ -111,6 +135,12 @@ $ git log --oneline
 
 klsdevops@DESKTOP-IPOC5HT MINGW64 ~/Desktop/git-merge-test (master)
 $
+
+```
+
+### Append the "_merge.txt_" file with some more content & commit it.
+
+```
 
 klsdevops@DESKTOP-IPOC5HT MINGW64 ~/Desktop/git-merge-test (master)
 $ echo "content to append" >> merge.txt
@@ -133,6 +163,12 @@ The file will have its original line endings in your working directory
 klsdevops@DESKTOP-IPOC5HT MINGW64 ~/Desktop/git-merge-test (master)
 $
 
+```
+
+### Check the commit history, you could see the laterst commit from _master_ branch along with the first commit from _master_ branch.
+
+```
+
 klsdevops@DESKTOP-IPOC5HT MINGW64 ~/Desktop/git-merge-test (master)
 $ git log --oneline
 de2f8a0 (HEAD -> master) appended content to merge.txt
@@ -141,8 +177,11 @@ de2f8a0 (HEAD -> master) appended content to merge.txt
 klsdevops@DESKTOP-IPOC5HT MINGW64 ~/Desktop/git-merge-test (master)
 $
 
-###Merge new_branch_to_merge_later to main
-###It will produce a merge conflict now
+```
+
+### Merge _new_branch_to_merge_later_ to _master_ . Now this will introduce a conflict.
+
+```
 
 klsdevops@DESKTOP-IPOC5HT MINGW64 ~/Desktop/git-merge-test (master)
 $ git merge new_branch_to_merge_later
@@ -153,7 +192,46 @@ Automatic merge failed; fix conflicts and then commit the result.
 klsdevops@DESKTOP-IPOC5HT MINGW64 ~/Desktop/git-merge-test (master|MERGING)
 $
 
-###How to identify merge conflicts
+```
+
+### How to identify merge conflicts?
+* Print the content of "merge.txt" to see the conflict details,
+
+```
+
+klsdevops@DESKTOP-IPOC5HT MINGW64 ~/Desktop/git-merge-test (master|MERGING)
+$ cat merge.txt
+<<<<<<< HEAD
+this is some content to mess with
+content to append
+=======
+totally different content to merge later
+>>>>>>> new_branch_to_merge_later
+
+klsdevops@DESKTOP-IPOC5HT MINGW64 ~/Desktop/git-merge-test (master|MERGING)
+$
+
+######################################################
+##   We can see some strange new additions as below ##
+##                                                  ##
+##   <<<<<<< HEAD                                   ##
+##   =======                                        ##
+##   >>>>>>> new_branch_to_merge_later              ##
+##                                                  ##
+######################################################
+
+### Think of these new lines as "conflict dividers". 
+### The ======= line is the "center" of the conflict.
+### All the content between the center and the <<<<<<< HEAD line is content that exists in the current branch main which the HEAD ref is pointing to.
+### Alternatively all content between the center and >>>>>>> new_branch_to_merge_later is content that is present in our merging branch.
+
+```
+
+### The other way to identify merge conflicts are by using git commands,
+
+* You can check the status and it will tell there's a conflict.
+
+```
 
 klsdevops@DESKTOP-IPOC5HT MINGW64 ~/Desktop/git-merge-test (master|MERGING)
 $ git status
@@ -171,36 +249,12 @@ no changes added to commit (use "git add" and/or "git commit -a")
 klsdevops@DESKTOP-IPOC5HT MINGW64 ~/Desktop/git-merge-test (master|MERGING)
 $
 
-###Print the content of "merge.txt" to see the conflict details,
+```
 
-klsdevops@DESKTOP-IPOC5HT MINGW64 ~/Desktop/git-merge-test (master|MERGING)
-$ cat merge.txt
-<<<<<<< HEAD
-this is some content to mess with
-content to append
-=======
-totally different content to merge later
->>>>>>> new_branch_to_merge_later
+* Passing the --_merge_ argument to the _git log_ command will produce a log with a list of commits that conflict between the merging branches.
 
-klsdevops@DESKTOP-IPOC5HT MINGW64 ~/Desktop/git-merge-test (master|MERGING)
-$
+```
 
-##############################################
-##   We can see some strange new additions  ##
-##                                          ##
-##   <<<<<<< HEAD                           ##
-##   =======                                ##
-##   >>>>>>> new_branch_to_merge_later      ##
-##############################################
-
-### Think of these new lines as "conflict dividers". 
-### The ======= line is the "center" of the conflict.
-### All the content between the center and the <<<<<<< HEAD line is content that exists in the current branch main which the HEAD ref is pointing to.
-### Alternatively all content between the center and >>>>>>> new_branch_to_merge_later is content that is present in our merging branch.
-
-### The other way to identify merge conflicts are by using git commands,
-
-###Passing the --merge argument to the git log command will produce a log with a list of commits that conflict between the merging branches.
 klsdevops@DESKTOP-IPOC5HT MINGW64 ~/Desktop/git-merge-test (master|MERGING)
 $ git log --merge
 commit de2f8a015a1e1f28012bf0516e3582102f4cf66f (HEAD -> master)
@@ -217,7 +271,11 @@ Date:   Tue Sep 21 09:59:49 2021 +0530
 
 klsdevops@DESKTOP-IPOC5HT MINGW64 ~/Desktop/git-merge-test (master|MERGING)
 
-###diff helps find differences between states of a repository/files. This is useful in predicting and preventing merge conflicts.
+```
+
+* _diff_ helps find differences between states of a repository/files. This is useful in predicting and preventing merge conflicts.
+
+```
 
 klsdevops@DESKTOP-IPOC5HT MINGW64 ~/Desktop/git-merge-test (master|MERGING)
 $ git diff
@@ -236,8 +294,12 @@ index 8abf0ff,251d87e..0000000
 klsdevops@DESKTOP-IPOC5HT MINGW64 ~/Desktop/git-merge-test (master|MERGING)
 $
 
-###How to resolve merge conflicts using the command line
-###The most direct way to resolve a merge conflict is to edit the conflicted file.
+```
+
+### How to resolve merge conflicts using the command line
+### The most direct way to resolve a merge conflict is to edit the conflicted file.
+
+```
 
 klsdevops@DESKTOP-IPOC5HT MINGW64 ~/Desktop/git-merge-test (master|MERGING)
 $ vi merge.txt
@@ -252,8 +314,12 @@ totally different content to merge later
 ~
 merge.txt[+] [dos] (10:03 21/09/2021)    
 
-###Once the file has been edited use git add merge.txt to stage the new merged content.
-###To finalize the merge create a new commit 
+```
+
+### Once the file has been edited use git add merge.txt to stage the new merged content.
+### To finalize the merge create a new commit 
+
+```
 
 klsdevops@DESKTOP-IPOC5HT MINGW64 ~/Desktop/git-merge-test (master|MERGING)
 $ git status
@@ -290,6 +356,13 @@ klsdevops@DESKTOP-IPOC5HT MINGW64 ~/Desktop/git-merge-test (master|MERGING)
 $ git commit -m "merged and resolved the conflict in merge.txt"
 [master 4a42701] merged and resolved the conflict in merge.txt
 
+```
+
+### Verify the commit history to see the merge commit details.
+### Git will see that the conflict has been resolved and creates a new merge commit to finalize the merge.
+
+```
+
 klsdevops@DESKTOP-IPOC5HT MINGW64 ~/Desktop/git-merge-test (master)
 $ git log --oneline
 4a42701 (HEAD -> master) merged and resolved the conflict in merge.txt
@@ -308,9 +381,12 @@ nothing to commit, working tree clean
 klsdevops@DESKTOP-IPOC5HT MINGW64 ~/Desktop/git-merge-test (master)
 $
 
-###Git will see that the conflict has been resolved and creates a new merge commit to finalize the merge.
+```
 
 ### Delete the feature branch
+
+```
+
 klsdevops@DESKTOP-IPOC5HT MINGW64 ~/Desktop/git-merge-test (master)
 $ git branch
 * master
