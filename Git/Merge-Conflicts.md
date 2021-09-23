@@ -407,7 +407,7 @@ $
 
 ```
 
-# Scenario: When you have a merge conflict and you want to abort the conflict,
+# Scenario: When you have a merge conflict and you want to abort the merge,
 
 ```
 
