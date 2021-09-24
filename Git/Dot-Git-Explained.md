@@ -28,7 +28,7 @@ $
 
 klsdevops@DESKTOP-IPOC5HT MINGW64 ~/Desktop/dot-git
 $ git init
-Initialized empty Git repository in C:/Users/sujith/Desktop/dot-git/.git/
+Initialized empty Git repository in C:/Users/klsdevops/Desktop/dot-git/.git/
 
 klsdevops@DESKTOP-IPOC5HT MINGW64 ~/Desktop/dot-git (master)
 $ ls -ltra
@@ -102,10 +102,6 @@ $
           
           ```
           
-          klsdevops@DESKTOP-IPOC5HT MINGW64 ~/Desktop/dot-git/.git/refs (GIT_DIR!)
-          $ cd -
-          /c/Users/sujith/Desktop/dot-git
-
           klsdevops@DESKTOP-IPOC5HT MINGW64 ~/Desktop/dot-git (master)
           $ ls -ltr
           total 0
