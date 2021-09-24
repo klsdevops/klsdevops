@@ -145,7 +145,7 @@ $
 
           ```
           
-          NOW, LET'S GO BACK TO THE _".git/refs/head"_ FOLDER AND SEE THE REFERENCES CREATED THERE.
+          NOW, LET'S GO BACK TO THE ".git/refs/head" FOLDER AND SEE THE REFERENCES CREATED THERE.
           
           ```
           
@@ -166,8 +166,9 @@ $
           
           ```
           
-          YOU COULD SEE A NEW FILE "_master_" HAS BEEN CREATED & IT CONTAIN A COMMIT REFERENCE TO THE LATEST COMMIT WHERE THE SYMBOLIC REFERENCE "_HEAD_" IS POINTING TO.
-          VERIFY THE CONTENTS OF "HEAD"
+          YOU COULD SEE A NEW FILE "master" HAS BEEN CREATED & IT CONTAIN A COMMIT REFERENCE TO THE LATEST COMMIT WHERE THE SYMBOLIC REFERENCE "HEAD" IS POINTING TO.
+          
+          NOW VERIFY THE CONTENTS OF "HEAD". YOU WILL SEE, THE "HEAD" SAYS A REFERENCE POINTER TO THE ACTUAL REFERENCE FILE.
           
           ```
           
@@ -222,7 +223,7 @@ $
 
           ```
           
-          HERE YOU COULD SEE THAT THE BRANCH "new-branch" HAS BEEN CREATED BASED ON "master" BRANCH AND HENCE IT ALSO HAVE THE SAME MASTER COMMIT ON IT NOW.
+          HERE YOU COULD SEE THAT THE BRANCH "new-branch" HAS BEEN CREATED BASED ON "master" BRANCH AND HENCE IT ALSO HAVE THE SAME MASTER COMMIT HASH(SHA-1) ON IT NOW.
 
           NOW SWITCH TO THE "new-branch" AND SEE THE POSITION OF HEAD
           
@@ -239,7 +240,7 @@ $
           $
           
           ```
-          YOU ARE SEEING THE HEAD IS NOW POINTING TO THE "new-branch". 
+          YOU ARE SEEING THE HEAD IS NOW POINTING TO THE "new-branch" REERENCES. 
           LET'S SEE WHAT'S THE NORMAL REFERENCE FOR THE "new-branch"
           
           ```
@@ -343,9 +344,9 @@ $
           
           ```
           
-          SO IDEALLY THE HEAD FILE WILL SHOW A REFERENCE TO YOUR CURRENT BRANCH REFERENCE.
+          SO IDEALLY THE "HEAD" FILE WILL SHOW A SYMBOLIC REFERENCE TO YOUR CURRENT ACTIVE BRANCH REFERENCE.
           
-          WHEN YOU CHECKOUT BACK TO MASTER BRANCH, YOU CAN SEE THE VALUE OF HEAD FILE IS CHANGING BACK TO MASTER REFERENCE,
+          WHEN YOU CHECKOUT BACK TO MASTER BRANCH, YOU CAN SEE THE VALUE OF "HEAD" FILE IS CHANGING BACK TO MASTER BRANCH REFERENCE,
           
           ```
           klsdevops@DESKTOP-IPOC5HT MINGW64 ~/Desktop/dot-git (new-branch)
@@ -393,7 +394,7 @@ $
           $
           
           ```
-          NOW AFTER SO MANY NEW COMMITS, LETS CHECK THE POSITION OF HEAD FOR EACH BRANCHES. 
+          NOW LET'S GUESS AFTER SO MANY NEW OTHER COMMITS, LETS CHECK THE POSITION OF HEAD FOR EACH BRANCHES. 
           WHEN YOU ARE ON MASTER BRANCH, YOU CAN SEE THE COMMIT HISTORY AND NOTICE THE HEAD REFERENCE IS ON THE LATEST COMMIT OF MASTER BRANCH.
           BUT WHEN YOU SWITCH TO THE "new-branch" YOU COULD SEE THE HEAD IS REFERENCING TO THE LATEST COMMIT OF "new-branch"
           
@@ -454,8 +455,8 @@ $
            
 **3. Config File**
  
-          All the configuration set to your repository will be saved here.
-          Repository specific configuration file. 
+          All the configurations set to your repository will be saved here.
+          Its a repository specific configuration file. 
           These are the repository level configurations. They only apply to the specific repository where they are set.
           
 **4. Object folder**
@@ -467,9 +468,9 @@ $
 **5. Info Folder**
 
           Additional information about the repository is recorded in this directory.
-          **_Info_** folder contains the "**_exclude_**" file inside it. As the name suggests, **exclude file** is used for excluding some specific patterns in the code that you don't want Git to read or execute as to say.
+          "Info" folder contains the "exclude" file inside it. As the name suggests, "exclude file" is used for excluding some specific patterns in the code that you don't want Git to read or execute as to say.
           **Remember that this file is local and personal to you and is not shared among the developers that clone your project.**
-          We have another file called "**_.gitignore_**" which should be used by all the developers to exclude/ignore files.
+          We have another file called ".gitignore" which should be used by all the developers to exclude/ignore files.
           
 **6. Logs**
 
