@@ -174,7 +174,8 @@ $
           
           ```
           
-          YOU COULD SEE A NEW FILE "master" HAS BEEN CREATED & IT CONTAIN A COMMIT REFERENCE TO THE LATEST COMMIT WHERE THE SYMBOLIC REFERENCE "HEAD" IS POINTING TO.
+          YOU COULD SEE A NEW FILE "master" HAS BEEN CREATED & IT CONTAIN A COMMIT REFERENCE TO THE LATEST COMMIT WHERE THE 
+          SYMBOLIC REFERENCE "HEAD" IS POINTING TO.
           
           NOW VERIFY THE CONTENTS OF "HEAD". YOU WILL SEE, THE "HEAD" SAYS A REFERENCE POINTER TO THE ACTUAL REFERENCE FILE.
           
@@ -241,7 +242,8 @@ $
           $
           ```
           
-          HERE YOU COULD SEE THAT THE BRANCH "new-branch" HAS BEEN CREATED BASED ON "master" BRANCH AND HENCE IT ALSO HAVE THE SAME MASTER COMMIT HASH(SHA-1) ON IT NOW.
+          HERE YOU COULD SEE THAT THE BRANCH "new-branch" HAS BEEN CREATED BASED ON "master" BRANCH AND HENCE IT ALSO HAVE 
+          THE SAME MASTER COMMIT HASH(SHA-1) ON IT NOW.
 
           NOW SWITCH TO THE "new-branch" AND SEE THE POSITION OF HEAD
           
@@ -392,7 +394,8 @@ $
           
           ```
           
-          NOW WHEN YOU DO A MERGE AND CHECK THE REFERENCES, YOU WILL NOTICE THE REFERENCE OF BOTH BRANCHES HAVE THE SAME SHA-1 COMMIT VALUE,
+          NOW WHEN YOU DO A MERGE AND CHECK THE REFERENCES, YOU WILL NOTICE THE REFERENCE OF BOTH BRANCHES HAVE 
+          THE SAME SHA-1 COMMIT VALUE,
           
           ```
           klsdevops@DESKTOP-IPOC5HT MINGW64 ~/Desktop/dot-git (master)
@@ -425,7 +428,8 @@ $
           
           ```
           NOW LET'S GUESS AFTER SO MANY NEW OTHER COMMITS, LETS CHECK THE POSITION OF HEAD FOR EACH BRANCHES. 
-          WHEN YOU ARE ON MASTER BRANCH, YOU CAN SEE THE COMMIT HISTORY AND NOTICE THE HEAD REFERENCE IS ON THE LATEST COMMIT OF MASTER BRANCH.
+          WHEN YOU ARE ON MASTER BRANCH, YOU CAN SEE THE COMMIT HISTORY AND NOTICE THE HEAD REFERENCE IS ON 
+          THE LATEST COMMIT OF MASTER BRANCH.
           BUT WHEN YOU SWITCH TO THE "new-branch" YOU COULD SEE THE HEAD IS REFERENCING TO THE LATEST COMMIT OF "new-branch"
           
           ```
@@ -478,7 +482,8 @@ $
             records tip-of-the-tree commit objects of branch name
 
           _refs/tags/<name>_
-            Each file corresponds to the tag previously created using the git tag command. Its content is nothing but a hash commit attached to the tag.
+            Each file corresponds to the tag previously created using the git tag command. 
+            Its content is nothing but a hash commit attached to the tag.
 
           _refs/remotes/<branch-name>_
             records tip-of-the-tree commit objects of branches copied from a remote repository.
@@ -498,7 +503,8 @@ $
 **5. Info Folder**
 
           Additional information about the repository is recorded in this directory.
-          "Info" folder contains the "exclude" file inside it. As the name suggests, "exclude file" is used for excluding some specific patterns in the code that you don't want Git to read or execute as to say.
+          "Info" folder contains the "exclude" file inside it. As the name suggests, "exclude file" is used for excluding 
+          some specific patterns in the code that you don't want Git to read or execute as to say.
           **Remember that this file is local and personal to you and is not shared among the developers that clone your project.**
           We have another file called ".gitignore" which should be used by all the developers to exclude/ignore files.
           
@@ -514,15 +520,19 @@ $
 **7. Hooks**
 
           Hooks are customization scripts used by various Git commands. 
-          A handful of sample hooks are installed when git init is run, but all of them are disabled by default. To enable, the .sample suffix has to be removed from the filename by renaming.
-          Git hooks are the scripts that are executed before or after the events. These events can be any Git event including the common Git events like commit, push, or receive. 
+          A handful of sample hooks are installed when git init is run, but all of them are disabled by default. 
+          To enable, the .sample suffix has to be removed from the filename by renaming.
+          Git hooks are the scripts that are executed before or after the events. These events can be any Git event including 
+          the common Git events like commit, push, or receive. 
   
 **8. Index**
 
           The current index file for the repository. It is usually not found in a bare repository.
           The index is one of the most important data structures in git.
-          It represents a virtual working tree state by recording list of paths and their object names and serves as a staging area to write out the next tree object to be committed.
-          Git index file (.git/index) is a binary file having the following format: a 12-byte header, a number of sorted index entries, extensions, and a SHA-1 checksum. 
+          It represents a virtual working tree state by recording list of paths and their object names and serves as a staging area
+          to write out the next tree object to be committed.
+          Git index file (.git/index) is a binary file having the following format: a 12-byte header, a number of sorted index entries,
+          extensions, and a SHA-1 checksum. 
           git ls-files can show you the contents of the index:
           
           ```
@@ -544,7 +554,8 @@ $
             * The stage number (slots), useful during merge conflict handling.
             * The object name.
           
-          The different stage numbers are not really used during git-add command. They are used for handling merge conflicts. In a nutshell:
+          The different stage numbers are not really used during git-add command. They are used for handling merge conflicts. 
+          In a nutshell:
 
             * Slot 0: “normal”, un-conflicted, all-is-well entry.
             * Slot 1: “base”, the common ancestor version.
