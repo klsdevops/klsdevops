@@ -1,6 +1,6 @@
 # GIT TAGS
 
-* List Tags: *
+**_List Tags:_**
 
 ```
 
@@ -10,7 +10,7 @@ v2.0
 
 ```
 
-* Search for tags that match a particular pattern: *
+**Search for tags that match a particular pattern:**
 
 ```
 
@@ -28,7 +28,7 @@ v1.8.5.5
 
 ```
 
-* Create Annotated Tags: *
+**Create Annotated Tags: **
 
 ```
 
@@ -40,7 +40,7 @@ v1.4
 
 ```
 
-* To see the data of a tag: *
+**To see the data of a tag: **
 
 ```
 
@@ -59,7 +59,7 @@ Date:   Mon Mar 17 21:52:11 2008 -0700
 
 ```
 
-* Create Lightweight Tags: *
+**Create Lightweight Tags: **
 
 ```
 
@@ -73,7 +73,7 @@ v1.5
 
 ```
 
-* To tag a previous/old commit: *
+**To tag a previous/old commit: **
 
 ```
 
@@ -113,7 +113,7 @@ Date:   Sun Apr 27 20:43:35 2008 -0700
 
 ```
 
-* To transfer single tag to remote: *
+**To transfer single tag to remote: **
 
 ```
 
@@ -128,7 +128,7 @@ To git@github.com:schacon/simplegit.git
 
 ```
 
-* To transfer all tag to remote: *
+**To transfer all tag to remote: **
 
 ```
 
@@ -142,7 +142,7 @@ To git@github.com:schacon/simplegit.git
 
 ```
 
-* Delete tags: *
+**Delete tags: **
 
 ```
 
@@ -151,7 +151,7 @@ Deleted tag 'v1.4-lw' (was e7d5add)
 
 ```
 
-* Delete remote tag: *
+**Delete remote tag: **
 
 ```
 
@@ -159,7 +159,7 @@ $ git push origin --delete <tagname>
 
 ```
 
-* View version of files in a tag: *
+**View version of files in a tag: **
 
 ```
 
@@ -191,7 +191,8 @@ HEAD is now at df3f601... Add atlas.json and cover image
 
 In “detached HEAD” state, if you make changes and then create a commit, the tag will stay the same, but your new commit won’t belong to any branch and will be unreachable, except by the exact commit hash.
 
-* To make changes from a tag & create new commits: *
+**To make changes from a tag & create new commits: **
+
 Scenario: You want to fix a bug from an older version of release.
 Create a new branch from the release tag & work on your bugfix & commit the changes.
 
@@ -229,7 +230,7 @@ $
 
 # Undoing Commits & Changes
 
-* To review history of a GIT Repository: *
+**To review history of a GIT Repository: **
 
 ```
 
@@ -237,7 +238,7 @@ $ git log --oneline
 
 ```
 
-* To visit a specific commit history & view files/changes: *
+**To visit a specific commit history & view files/changes: **
 
 ```
 
@@ -285,7 +286,7 @@ $
 
 ```
 
-* Undo commit with git checkout: (not an appropriate method) *
+**Undo commit with git checkout: (not an appropriate method) **
 
 ```
 
@@ -300,7 +301,7 @@ Unfortunately, if you need the previous branch, maybe it was your main branch, t
 
 ```
 
-* Undo a commit with GIT Revert: *
+**Undo a commit with GIT Revert: **
 
 A revert is an operation that takes a specified commit and creates a new commit which inverses the specified commit. git revert can only be run at a commit level scope and has no file level functionality.
 
@@ -344,7 +345,7 @@ $ git revert <commit-id>
 
 Unlike our previous checkout strategy, we can continue using the same branch. This solution is a satisfactory undo. This is the ideal 'undo' method for working with public shared repositories. If you have requirements of keeping a curated and minimal Git history this strategy may not be satisfactory.
 
-* Undo a commit with GIT Reset: *
+**Undo a commit with GIT Reset: **
 
 A reset is an operation that takes a specified commit and resets the "three trees" to match the state of the repository at that specified commit. A reset can be invoked in three different modes which correspond to the three trees.
 
@@ -389,13 +390,13 @@ This method of undoing changes has the cleanest effect on history. Doing a reset
 
 If we have a shared remote repository that has the eb06fae commit pushed to it, and we try to git push a branch where we have reset the history, Git will catch this and throw an error. Git will assume that the branch being pushed is not up to date because of it's missing commits. In these scenarios, git revert should be the preferred undo method.
 
-* NOTE: Checkout and reset are generally used for making local or private 'undos'. They modify the history of a repository that can cause conflicts when pushing to remote shared repositories. Revert is considered a safe operation for 'public undos' as it creates new history which can be shared remotely and doesn't overwrite history remote team members may be dependent on. *
+**NOTE: Checkout and reset are generally used for making local or private 'undos'. They modify the history of a repository that can cause conflicts when pushing to remote shared repositories. Revert is considered a safe operation for 'public undos' as it creates new history which can be shared remotely and doesn't overwrite history remote team members may be dependent on. **
 
-* Undoing the last commit: *
+**Undoing the last commit: **
 
 In some cases though, you might not need to remove or reset the last commit. Maybe it was just made prematurely. In this case you can amend the most recent commit. Once you have made more changes in the working directory and staged them for commit by using "git add", you can execute "git commit --amend". 
 
-* Undoing uncommitted changes: *
+**Undoing uncommitted changes: **
 
 ```
 
@@ -475,7 +476,7 @@ $
 
 ```
 
-* GIT rm command: *
+**GIT rm command: **
 
 A common question when getting started with Git is "How do I tell Git not to track a file (or files) any more?" The git rm command is used to remove files from a Git repository. It can be thought of as the inverse of the git add command.
 
