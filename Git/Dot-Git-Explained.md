@@ -99,7 +99,7 @@ $
           ```
           
           INITIALLY, THERE ARE NO FILES AVAILABLE UNDER /refs/
-          NOW LET'S ADD SOME FILES & MAKE A COMMIT
+          NOW LET'S ADD SOME FILES AND COMMIT TO THE REPOSITORY
           
           ```
           
