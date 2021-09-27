@@ -76,3 +76,30 @@ _Note: You can remove these settings from your window Credential Manager,
       Control Panel -> User Accounts -> Credential Manager -> Windows Credentials -> Generic Credentials
       Edit or Remove the values._
   
+## 6. Config Levels
+What is the best practice for setting the config levels? system/global/local
+
+  This is totally up to you, whether you want a setting only on one repository, on all repositories you access with your user account or on all repositories on this machine.
+  
+  The precedence will be System -> Global -> Local
+  
+  The files are read in the order given above, with last value found taking precedence over values read earlier.
+  
+  
+  ### Lowest to highest priority:
+       /etc/gitconfig: system wide, edited when --system parameter is used
+       ~/.gitconfig: user specific configuration, edited when --global parameter is used
+       .git/config: repository specific configuration with --local parameter
+  
+  Say for eg; 
+  
+      If you are working for a corporate and you have set your "user.name" & "user.email" with your corporate details in a global level parameters & if you want to work for 
+      your private project and dont want to use your corporate settings, you can set your personal "user.name" & "user.email" with the local settings on a repository level.
+      
+      
+      Or may be "user.email" for example is not set on global level on your work box, as you work on private and corporate repos and use different addresses there. By not
+      configuring either on the global level you are reminded on local level to set it when doing the first commit.
+      
+      
+      
+      
