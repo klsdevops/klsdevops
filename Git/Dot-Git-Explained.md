@@ -98,6 +98,7 @@ $
 
           ```
           
+          INITIALLY, THERE ARE NO FILES AVAILABLE UNDER /refs/
           NOW LET'S ADD SOME FILES & MAKE A COMMIT
           
           ```
