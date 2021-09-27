@@ -95,6 +95,13 @@ $
 
           klsdevops@DESKTOP-IPOC5HT MINGW64 ~/Desktop/dot-git/.git/refs/heads (GIT_DIR!)
           $
+          
+          klsdevops@DESKTOP-IPOC5HT MINGW64 ~/Desktop/dot-git (master)
+          $ git log
+          fatal: your current branch 'master' does not have any commits yet
+
+          klsdevops@DESKTOP-IPOC5HT MINGW64 ~/Desktop/dot-git (master)
+          $
 
           ```
           
@@ -221,7 +228,17 @@ $
 
           klsdevops@DESKTOP-IPOC5HT MINGW64 ~/Desktop/dot-git (master)
           $
+          
+          klsdevops@DESKTOP-IPOC5HT MINGW64 ~/Desktop/dot-git (master)
+          $ git log
+          commit e9391940d632e9417730081fb838e9ec005dfb1f (HEAD -> new-branch, master)
+          Author: klsdevops <kls13092021@gmail.com>
+          Date:   Fri Sep 24 06:36:46 2021 +0530
 
+            created dummy file
+
+          klsdevops@DESKTOP-IPOC5HT MINGW64 ~/Desktop/dot-git (master)
+          $
           ```
           
           HERE YOU COULD SEE THAT THE BRANCH "new-branch" HAS BEEN CREATED BASED ON "master" BRANCH AND HENCE IT ALSO HAVE THE SAME MASTER COMMIT HASH(SHA-1) ON IT NOW.
@@ -240,8 +257,19 @@ $
           klsdevops@DESKTOP-IPOC5HT MINGW64 ~/Desktop/dot-git (new-branch)
           $
           
+          klsdevops@DESKTOP-IPOC5HT MINGW64 ~/Desktop/dot-git (new-branch)
+          $ git log
+          commit e9391940d632e9417730081fb838e9ec005dfb1f (HEAD -> new-branch, master)
+          Author: klsdevops <kls13092021@gmail.com>
+          Date:   Fri Sep 24 06:36:46 2021 +0530
+
+            created dummy file
+
+          klsdevops@DESKTOP-IPOC5HT MINGW64 ~/Desktop/dot-git (new-branch)
+          $
+          
           ```
-          YOU ARE SEEING THE HEAD IS NOW POINTING TO THE "new-branch" REERENCES. 
+          YOU ARE SEEING THE HEAD IS NOW POINTING TO THE "new-branch" REERENCES AS WELL. 
           LET'S SEE WHAT'S THE NORMAL REFERENCE FOR THE "new-branch"
           
           ```
@@ -328,7 +356,8 @@ $
 
           ```
           
-          YOU CAN SEE THE SYMBOLIC REFERENCE (HEAD) IS POINTING TO THE "new-branch" REFERENCE & IF YOU CHECK THE CONTENTS, IT HAS THE COMMIT ID OF THE LATEST COMMIT OF "new-branch". THE MASTER BRANCH COMMIT WILL HAVE DIFFERENT VALUE
+          YOU CAN SEE THE SYMBOLIC REFERENCE (HEAD) IS POINTING TO THE "new-branch" REFERENCE & IF YOU CHECK THE CONTENTS, 
+          IT HAS THE COMMIT ID OF THE LATEST COMMIT OF "new-branch". THE MASTER BRANCH COMMIT WILL HAVE DIFFERENT VALUE
           
           ```
           klsdevops@DESKTOP-IPOC5HT MINGW64 ~/Desktop/dot-git (new-branch)
