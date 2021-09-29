@@ -100,6 +100,21 @@ What is the best practice for setting the config levels? system/global/local
       Or may be "user.email" for example is not set on global level on your work box, as you work on private and corporate repos and use different addresses there. By not
       configuring either on the global level you are reminded on local level to set it when doing the first commit.
       
-      
-      
+## 7. Raise a Pull Request (PR)
+
+Inorder to make some feature development and commit the code to the remote repository master branch(or default branches), the below things should be followed.
+
+**NOTE**: The basic thumb rule is "We do not commit anything directly to the master/main branch". The default branches will be always in protected mode, so that no one can commit code directly to these branches. Rather they will have to raise a pull request from their feature branch to the default branch & it has to go through a review and approval phase before we merge the code to default branch.
+
+   #### 1. Clone the remote repository to your local.
+   #### 2. Create your own feature branch. 
+   #### 3. Switch/Checkout to the feature branch.
+   #### 4. Update your feature code.
+   #### 5. Set remote upstream & push the code to remote repository.
+   #### 6. Go to the remote (GITHUB) and "Compare & Raise a Pull Request" to Master branch.
+   #### 7. Update your team to Approve the PR
+   #### 8. Once the PR is approved, Merge(probably a "Squash & Merge" Option) the code to Master Branch.
+   #### 9. PR is closed.
+   
+   
       
