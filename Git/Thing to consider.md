@@ -109,7 +109,7 @@ Inorder to make some feature development and commit the code to the remote repos
    #### 1. Clone the remote repository to your local.
    #### 2. Create your own feature branch. 
    #### 3. Switch/Checkout to the feature branch.
-   #### 4. Update your feature code.
+   #### 4. Update your feature code & commit to local repo.
    #### 5. Set remote upstream & push the code to remote repository.
    #### 6. Go to the remote (GITHUB) and "Compare & Raise a Pull Request" to Master branch.
    #### 7. Update your team to Approve the PR
