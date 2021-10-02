@@ -1,3 +1,226 @@
+# GIT INITIATE
+
+$ git init
+
+```
+
+KLSDEVOPS@LAPTOP-SME4GNLK MINGW64 ~
+$ mkdir myproject
+
+KLSDEVOPS@LAPTOP-SME4GNLK MINGW64 ~
+$ cd myproject
+
+KLSDEVOPS@LAPTOP-SME4GNLK MINGW64 ~/myproject
+$ git init
+Initialized empty Git repository in C:/Users/KLSDEVOPS/myproject/.git/
+
+KLSDEVOPS@LAPTOP-SME4GNLK MINGW64 ~/myproject (master)
+$
+
+```
+
+# GIT CLONE
+To clone an existing remote repository
+
+$ git clone _REPO-URL_
+
+```
+KLSDEVOPS@LAPTOP-SME4GNLK MINGW64 ~
+$ git clone https://github.com/klsdevops/klsdevops.git
+Cloning into 'klsdevops'...
+remote: Enumerating objects: 147, done.
+remote: Counting objects: 100% (147/147), done.
+remote: Compressing objects: 100% (89/89), done.
+remote: Total 147 (delta 52), reused 144 (delta 50), pack-reused 0
+Receiving objects: 100% (147/147), 49.50 KiB | 1.41 MiB/s, done.
+Resolving deltas: 100% (52/52), done.
+
+KLSDEVOPS@LAPTOP-SME4GNLK MINGW64 ~
+$
+```
+
+# GIT BRANCH
+
+### LIST BRANCHES
+$ git branch
+
+### LIST ALL BRANCHES
+$ git branch -a
+
+### CREATE A NEW BRANCH
+
+$ git branch _new-branch-name_ 
+
+```
+KLSDEVOPS@LAPTOP-SME4GNLK MINGW64 ~/klsdevops (main)
+$ git branch
+* main
+
+KLSDEVOPS@LAPTOP-SME4GNLK MINGW64 ~/klsdevops (main)
+$ git branch -a
+* main
+  remotes/origin/HEAD -> origin/main
+  remotes/origin/main
+
+KLSDEVOPS@LAPTOP-SME4GNLK MINGW64 ~/klsdevops (main)
+$ git branch feature-branch
+
+KLSDEVOPS@LAPTOP-SME4GNLK MINGW64 ~/klsdevops (main)
+$ git branch
+  feature-branch
+* main
+
+KLSDEVOPS@LAPTOP-SME4GNLK MINGW64 ~/klsdevops (main)
+$
+
+```
+## SWITCH TO ANOTHER BRANCH
+
+$ git checkout _branch-name_
+
+```
+
+KLSDEVOPS@LAPTOP-SME4GNLK MINGW64 ~/klsdevops (main)
+$ git checkout feature-branch
+Switched to branch 'feature-branch'
+
+KLSDEVOPS@LAPTOP-SME4GNLK MINGW64 ~/klsdevops (feature-branch)
+$
+
+```
+
+## ADD NEW FILES TO THE NEW BRANCH
+
+```
+KLSDEVOPS@LAPTOP-SME4GNLK MINGW64 ~/klsdevops (feature-branch)
+$ ls -ltr
+total 5
+drwxr-xr-x 1 KLSDEVOPS 197121   0 Sep 29 08:22 Git/
+drwxr-xr-x 1 KLSDEVOPS 197121   0 Sep 29 08:22 Jenkins/
+-rw-r--r-- 1 KLSDEVOPS 197121 423 Sep 29 08:22 README.md
+
+KLSDEVOPS@LAPTOP-SME4GNLK MINGW64 ~/klsdevops (feature-branch)
+$ echo "this is a test file" > test-file
+
+KLSDEVOPS@LAPTOP-SME4GNLK MINGW64 ~/klsdevops (feature-branch)
+$ git status
+On branch feature-branch
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        test-file
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+KLSDEVOPS@LAPTOP-SME4GNLK MINGW64 ~/klsdevops (feature-branch)
+$ git add test-file
+warning: LF will be replaced by CRLF in test-file.
+The file will have its original line endings in your working directory
+
+KLSDEVOPS@LAPTOP-SME4GNLK MINGW64 ~/klsdevops (feature-branch)
+$ git status
+On branch feature-branch
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   test-file
+
+
+KLSDEVOPS@LAPTOP-SME4GNLK MINGW64 ~/klsdevops (feature-branch)
+$ git commit -m "adding test file"
+[feature-branch 5c5398f] adding test file
+ 1 file changed, 1 insertion(+)
+ create mode 100644 test-file
+
+KLSDEVOPS@LAPTOP-SME4GNLK MINGW64 ~/klsdevops (feature-branch)
+$ git status
+On branch feature-branch
+nothing to commit, working tree clean
+
+KLSDEVOPS@LAPTOP-SME4GNLK MINGW64 ~/klsdevops (feature-branch)
+$ ls -ltr
+total 6
+drwxr-xr-x 1 KLSDEVOPS 197121   0 Sep 29 08:22 Git/
+drwxr-xr-x 1 KLSDEVOPS 197121   0 Sep 29 08:22 Jenkins/
+-rw-r--r-- 1 KLSDEVOPS 197121 423 Sep 29 08:22 README.md
+-rw-r--r-- 1 KLSDEVOPS 197121  20 Sep 29 08:41 test-file
+
+KLSDEVOPS@LAPTOP-SME4GNLK MINGW64 ~/klsdevops (feature-branch)
+$
+
+```
+## SET REMOTE AS UPSTREAM FOR A BRANCH & PUSH CHANGES TO REMOTE REPOSITORY
+
+$ git push --set-upstream origin _branch-name_
+
+```
+
+KLSDEVOPS@LAPTOP-SME4GNLK MINGW64 ~/klsdevops (feature-branch)
+$ git push --set-upstream origin feature-branch
+Enumerating objects: 4, done.
+Counting objects: 100% (4/4), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 290 bytes | 290.00 KiB/s, done.
+Total 3 (delta 1), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+remote:
+remote: Create a pull request for 'feature-branch' on GitHub by visiting:
+remote:      https://github.com/klsdevops/klsdevops/pull/new/feature-branch
+remote:
+To https://github.com/klsdevops/klsdevops.git
+ * [new branch]      feature-branch -> feature-branch
+Branch 'feature-branch' set up to track remote branch 'feature-branch' from 'origin'.
+
+KLSDEVOPS@LAPTOP-SME4GNLK MINGW64 ~/klsdevops (feature-branch)
+$
+
+```
+
+## MERGE BRANCH
+$ git merge _branch-name_
+
+```
+
+KLSDEVOPS@LAPTOP-SME4GNLK MINGW64 ~/klsdevops (feature-branch)
+$ git checkout main
+Switched to branch 'main'
+Your branch is up to date with 'origin/main'.
+
+KLSDEVOPS@LAPTOP-SME4GNLK MINGW64 ~/klsdevops (main)
+$ git merge feature-branch
+Updating 76697b9..5c5398f
+Fast-forward
+ test-file | 1 +
+ 1 file changed, 1 insertion(+)
+ create mode 100644 test-file
+
+KLSDEVOPS@LAPTOP-SME4GNLK MINGW64 ~/klsdevops (main)
+$
+
+```
+
+## DELETE A BRANCH
+$ git branch -d _branch-name_
+
+```
+
+KLSDEVOPS@LAPTOP-SME4GNLK MINGW64 ~/klsdevops (main)
+$ git branch
+  feature-branch
+* main
+
+KLSDEVOPS@LAPTOP-SME4GNLK MINGW64 ~/klsdevops (main)
+$ git branch -d feature-branch
+Deleted branch feature-branch (was 5c5398f).
+
+KLSDEVOPS@LAPTOP-SME4GNLK MINGW64 ~/klsdevops (main)
+$ git branch
+* main
+
+KLSDEVOPS@LAPTOP-SME4GNLK MINGW64 ~/klsdevops (main)
+$
+
+```
+
 # GIT TAGS
 
 **_List Tags:_**
