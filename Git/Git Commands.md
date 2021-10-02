@@ -221,6 +221,11 @@ $
 
 ```
 
+## PRUNE REMOTE REPOSITORY BRANCHES
+If the remote branches are already deleted & you still have your remote references in your local, you can prune it from local.
+
+![image](https://user-images.githubusercontent.com/90503660/135725985-cf2d0a1e-95c5-4035-ba1a-b8b97d62e20b.png)
+
 # GIT TAGS
 
 **_List Tags:_**
