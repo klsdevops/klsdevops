@@ -27,7 +27,7 @@ Jenkins is a self-contained Java-based program, ready to run out-of-the-box, wit
    ```
    _The output should be something like this,_
    
-   ![image](https://user-images.githubusercontent.com/90503660/135741875-5929bdfe-8573-4554-ab72-688bbdb45d39.png)
+   ![image](https://user-images.githubusercontent.com/90503660/135741992-9d585c78-ba08-430d-a5e8-975fa2ee0011.png)
 
 ## Install Jenkins
  You can install jenkins using the rpm or by setting up the repo. We will set up the repo so that we can update it easily in the future.
