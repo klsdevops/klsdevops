@@ -24,6 +24,8 @@
     - Password : `deployer`
     - id      :  `deployer`
     - Description: `user to deploy on tomcat vm`
+    
+    ![image](https://user-images.githubusercontent.com/90503660/135749917-9a5661cc-52a3-4cf0-b1a0-42f29949f18b.png)
 
 ### Steps to create "Deploy_on_Tomcat_Server" Jenkin job
  #### From Jenkins home page select "New Item"
@@ -45,5 +47,17 @@
       - Containers : `Tomcat 8.x`
          - Credentials: `deployer` (user created on above)
          - Tomcat URL : `http://<PUBLIC_IP>:8080`
+    
+    ![image](https://user-images.githubusercontent.com/90503660/135749995-b529b0a5-e2ed-4b24-aa64-e1ddd92a0748.png)
+
+    ![image](https://user-images.githubusercontent.com/90503660/135750005-94a6b9f8-8778-488a-87e8-0fa115c21d03.png)
 
 Save and run the job now.
+
+    ![image](https://user-images.githubusercontent.com/90503660/135750033-e682ba4c-6f1a-497a-a621-5070f367baab.png)
+
+Once the build is success, go to the Browser URL and check the application deployed under the "webapps" folder.
+
+![image](https://user-images.githubusercontent.com/90503660/135750077-db4e08de-13e3-4cca-817e-a61affbc77ad.png)
+
+
