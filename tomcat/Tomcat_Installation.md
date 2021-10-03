@@ -119,5 +119,15 @@ goto tomcat home directory and Add below users to conf/tomcat-users.xml file
 	<user username="deployer" password="deployer" roles="manager-script"/>
 	<user username="tomcat" password="s3cret" roles="manager-gui"/>
    ```
-4. Restart serivce and try to login to tomcat application from the browser. This time it should be Successful
+   
+   ![image](https://user-images.githubusercontent.com/90503660/135749409-aa9f4058-34e0-47a5-8b33-ffdd96992093.png)
+
+4. Restart serivce and try to login to tomcat application from the browser. User credentials for the user "tomcat". This time it should be Successful
+
+	![image](https://user-images.githubusercontent.com/90503660/135749417-9c943043-e3a7-4070-90d6-6d68e25b254a.png)
+	
+	![image](https://user-images.githubusercontent.com/90503660/135749462-1a18e5aa-5237-4d33-8206-ddad5a23cc6c.png)
+	
+	![image](https://user-images.githubusercontent.com/90503660/135749477-d025e6b5-f61d-40dc-af4c-92a3d372100f.png)
+
 
