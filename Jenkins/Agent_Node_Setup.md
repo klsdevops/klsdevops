@@ -90,3 +90,16 @@ We need to add the credentials of the "jenkins" user we created on the Agent mac
 
 ![image](https://user-images.githubusercontent.com/90503660/135797546-bb989e60-9eba-4327-a657-06a736019114.png)
 
+### From the General tab, select the "Restrict where this project can be run" checkbox and provide the Label of Node where you want to run the build.
+
+![image](https://user-images.githubusercontent.com/90503660/135798064-72acfd08-2fc1-484a-8853-eb6474df26b7.png)
+
+### Select the "Execute Shell" from the "Add Build Step" Dropdown list and run some shell commands there(we are running the command `hostname` so that we can see on which host it is getting executed.
+
+![image](https://user-images.githubusercontent.com/90503660/135797798-0f1c7dbc-8a75-408c-bd9d-54450dd28241.png)
+
+### Now run a build job and verify the console output to see on which machine this has executed
+
+![image](https://user-images.githubusercontent.com/90503660/135798212-0ffc4888-c366-4532-b073-67c5996681db.png)
+
+
