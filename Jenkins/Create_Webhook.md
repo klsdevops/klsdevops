@@ -53,3 +53,13 @@
   
   ![image](https://user-images.githubusercontent.com/90503660/135959727-a129ec59-e3d7-48e5-88f2-2698090e19cd.png)
 
+## You can verify the latest update by starting the application & accessing the application web URL
+
+  ### Start the application
+  
+  ![image](https://user-images.githubusercontent.com/90503660/135960037-0b70a4db-7104-44ab-af6a-652e458caeb5.png)
+
+  ### Access the application on browser to see the updated code
+  
+  ![image](https://user-images.githubusercontent.com/90503660/135960093-a22276d5-7057-4d8f-be8e-ea96cae5d2d5.png)
+
