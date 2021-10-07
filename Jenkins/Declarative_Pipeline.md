@@ -40,4 +40,55 @@ For writing the Declarative Pipeline Syntax, you can get help from the Declarati
   Both _Declarative_ and _Scripted Pipeline_ are DSLs to describe portions of your software delivery pipeline. Scripted Pipeline is written in a limited form of _Groovy syntax_.
   A Pipeline can be created through the _Classic UI_ method or _In SCM_ write a _Jenkinsfile_ manually, which you can commit to your project’s source control repository. 
   
-  
+  ### Through Classic UI
+    
+    #### Select "new item" and select the "Pipeline" from options and click "OK"
+    
+    ![image](https://user-images.githubusercontent.com/90503660/136320569-c5d7518d-a50f-4886-8069-5b3b71b727b5.png)
+
+    #### Go to the "Pipeline" tab and write your Pipeline code into the Script text area
+    
+    Copy the following Declarative example Pipeline code and paste this into the Script text area. 
+    
+    ```
+    pipeline {
+        agent any 
+        stages {
+            stage('Stage 1') {
+                steps {
+                    echo 'Hello world!' 
+                }
+            }
+        }
+    }
+    ```
+    
+    ![image](https://user-images.githubusercontent.com/90503660/136320696-eed5f58a-3b8e-48a1-9b40-e88731acfecc.png)
+
+    * _agent_ instructs Jenkins to allocate an executor (on any available agent/node in the Jenkins environment) and workspace for the entire Pipeline.
+    * _echo_ writes simple string in the console output.
+    * _node_ effectively does the same as _agent_ (above).
+    
+    **NOTE:** You can even try the "try sample Pipeline" option at the top right of the Script text area. 
+    
+    #### Click Apply & Save to open the Pipeline project/item view page.
+    #### Now, run the pipeline to see the results (Click "Build Now")
+    
+    ![image](https://user-images.githubusercontent.com/90503660/136321200-2841bf38-808d-4ab7-a8d8-04128df74beb.png)
+    
+    #### When you click on the stage logs, you can see the script output
+    
+    ![image](https://user-images.githubusercontent.com/90503660/136321274-3d4b1524-6d8e-433d-a7a3-89f5243b5528.png)
+
+    #### Under Build History on the left, click #1 to access the details for this particular Pipeline run.
+    #### Click Console Output to see the full output from the Pipeline run. The following output shows a successful run of your Pipeline.
+    
+    ![image](https://user-images.githubusercontent.com/90503660/136321398-5fb14200-48e9-4b91-b3d8-f2cb71c0f0d4.png)
+
+    **NOTE:** Defining a Pipeline through the classic UI is convenient for testing Pipeline code snippets, or for handling simple Pipelines or Pipelines that do not require 
+              source code to be checked out/cloned from a repository.
+              Jenkinsfiles entered into the Script text area of Pipeline projects are stored by Jenkins itself, within the Jenkins home directory.
+              For greater control and flexibility over your Pipeline, it is recommended that you use _source control_ to define your _Jenkinsfile_.
+    
+
+    
