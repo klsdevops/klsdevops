@@ -70,3 +70,21 @@ You could see some automatic jobs has been triggered
 
 ![image](https://user-images.githubusercontent.com/90503660/136669755-96b009ec-4fd6-4b5d-8b66-b3f855f8a56c.png)
 
+# What happens if there's no Jenkinsfile in a branch ?
+
+If there's no Jenkinsfile, it will not create any pipeline for that particular branch.
+
+We can test it by removing Jenkins file from one branch & see,
+
+For eg; we will remove Jenkinsfile from the newly created UAT branch,
+
+![image](https://user-images.githubusercontent.com/90503660/136669966-f5aa02a2-e803-48de-baf8-52f479181789.png)
+
+You could see Jenkinsfile has disappeared from Remote UAT branch
+
+![image](https://user-images.githubusercontent.com/90503660/136669983-60512863-666a-4fb6-a535-5f898a9244e1.png)
+
+When you check the multibranch pipeline, you could notice the "UAT" pipeline has been removed automatically
+
+![image](https://user-images.githubusercontent.com/90503660/136670007-b4101b68-6e21-4155-9bfe-3b062712eea0.png)
+
