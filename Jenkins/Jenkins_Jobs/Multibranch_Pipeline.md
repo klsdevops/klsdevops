@@ -88,3 +88,24 @@ When you check the multibranch pipeline, you could notice the "UAT" pipeline has
 
 ![image](https://user-images.githubusercontent.com/90503660/136670007-b4101b68-6e21-4155-9bfe-3b062712eea0.png)
 
+# Usecases
+
+## Now if the developer make changes & commit only to the Develop branch, then it will trigger only the Develop pipeline & do a deployment only to the development server.
+
+* Change code on the Develop branch & commit
+
+![image](https://user-images.githubusercontent.com/90503660/136670303-03bfd1b9-e85c-46a0-ba7e-d300cbc650d4.png)
+
+* verify the pipeline to see the new automatic trigger on Develop Pipeline
+
+![image](https://user-images.githubusercontent.com/90503660/136670326-dd896260-5717-4b81-ad69-e3468f52bbd3.png)
+
+* Verify the changes on the application URL
+
+![image](https://user-images.githubusercontent.com/90503660/136670338-a729c4a0-e0bf-4da6-8f10-c2f2af22d08a.png)
+
+* You can verify the Production application URL (master) as well, it will be still having the old code update only
+
+![image](https://user-images.githubusercontent.com/90503660/136670365-ddc03ff6-60b1-4260-bc7b-b9d8cb3e1b92.png)
+
+
