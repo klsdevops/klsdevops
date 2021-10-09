@@ -20,6 +20,9 @@
 
 ![image](https://user-images.githubusercontent.com/90503660/136647172-6e0febce-800d-40f4-9f36-3e22111f63ad.png)
 
+**NOTE:** You can always use the "Pipeline Syntax" option for writing the code snippet
+http://3.22.222.129:8080/job/maven-scm-pipeline/pipeline-syntax/
+
 ## You can copy & paste the below code snippet
 
 ```
