@@ -32,6 +32,9 @@
 
 # Ensure you have a "Jenkinsfile" in you repository, if not create a "Jenkinsfile" in your repository with the below code snippet
 
+**NOTE:** You can always use the "Pipeline Syntax" option for writing the code snippet
+http://3.22.222.129:8080/job/maven-scm-pipeline/pipeline-syntax/
+
 ```
 pipeline {
     agent any
