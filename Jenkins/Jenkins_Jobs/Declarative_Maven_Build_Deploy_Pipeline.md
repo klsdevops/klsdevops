@@ -4,10 +4,12 @@
 3. Maven Plugin Installation
 4. Java Installation
 5. Set JAVA_HOME, M2_HOME etc variables on the Jenkins Console
+6. Tomcat Server setup
 
-# Refer the below document links for setting up Jenkins & Maven
+# Refer the below document links for setting up Jenkins, Maven & Tomcat
   https://github.com/klsdevops/klsdevops/blob/main/Jenkins/Jenkins_Installation.MD
   https://github.com/klsdevops/klsdevops/blob/main/Jenkins/Maven_Installation.md
+  https://github.com/klsdevops/klsdevops/blob/main/tomcat/Tomcat_Installation.md
   
 
 # Create a new item with "Pipeline" option
@@ -89,4 +91,8 @@ deploy adapters: [tomcat8(credentialsId: 'deployer', path: '', url: 'http://3.14
 ## Once you run the pipeline, you could see a new view for the "Deploy" running on the pipeline
 
 ![image](https://user-images.githubusercontent.com/90503660/136665643-279a9026-ff14-49db-804c-81774eb5fc77.png)
+
+## Verify the output by checking the application URL
+
+![image](https://user-images.githubusercontent.com/90503660/136666999-2e4d49fc-43fb-4a7f-b24d-8531ca1771dc.png)
 
