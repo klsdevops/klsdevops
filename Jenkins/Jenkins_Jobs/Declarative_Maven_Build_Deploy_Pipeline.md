@@ -78,3 +78,15 @@ pipeline {
 
 ![image](https://user-images.githubusercontent.com/90503660/136647842-791f545f-e038-4329-8cb9-55b195727c39.png)
 
+## Now we will add the code snippet for the deployment part as well
+
+```
+deploy adapters: [tomcat8(credentialsId: 'deployer', path: '', url: 'http://3.140.1.119:8090/')], contextPath: 'webapp', onFailure: false, war: '**/*.war'
+```
+
+![image](https://user-images.githubusercontent.com/90503660/136665594-86ca5844-49c6-4bf8-bce9-03f8aac96be8.png)
+
+## Once you run the pipeline, you could see a new view for the "Deploy" running on the pipeline
+
+![image](https://user-images.githubusercontent.com/90503660/136665643-279a9026-ff14-49db-804c-81774eb5fc77.png)
+
