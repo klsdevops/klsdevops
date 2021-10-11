@@ -7,7 +7,9 @@
       - Sujith => sujith.jsp
       - Jarish => jarish.jsp
       - Nazeer => nazeer.jsp
-   NOTE: Each person should make sure that you are creating only the file with your name.
+  
+  NOTE: Each person should make sure that you are creating only the file with your name.
+  
 * Also update your Project progress on the existing README.md file
 * Setup Jenkins Server
 * Create a build pipeline for the application.
