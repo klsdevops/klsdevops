@@ -16,4 +16,6 @@ https://dev.azure.com/
     * Setup the application servers (Dev & Release environments)
     * Perform a deployment to the Dev environment
     * Automate the complete CICD with Jenkins file & the deployment should happen to the respective environments w.r.t code updates/merge strategy.
-   
+3. Assign the work items to sprints according to the capacity & Velocity
+4. Create sub tasks for each user story
+5. While you progress with each tasks, move the items to "Inprog/Resolved/Done"
