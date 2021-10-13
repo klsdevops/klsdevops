@@ -16,7 +16,7 @@ Before moving to Pipeline, we used to create a separate job for each environment
   - **Reducing the number of jobs:** Earlier we used to create a job for each branch, as the number of applications increased the number of jobs also increased. By creating Multibranch Pipeline the number of jobs reduced by 75 percent. This is a huge drop, and our Jenkins box looks a lot cleaner now.
   - **CI part of the Pipeline:** Before moving to pipelines, we used to have a dedicated CI job for each application. Now CI is a part of the one pipeline job. We could use conditions(eg; when) in our Jenkinsfile to achieve this.
   - **Better Troubleshooting when the Job fails:** Since the whole Pipeline is divided into multiple stages, whenever there is an issue you can pin-point at which stage the error happened and the troubleshooting becomes more focused.
-  - Backup of Pipeline: We have a backup of our pipeline which can be easily restored in case of a crash.
+  - **Backup of Pipeline:** We have a backup of our pipeline in our repository, which can be easily restored in case of a crash.
 
 # Create a "Develop" branch from the "Master" branch of the repository
 
