@@ -6,6 +6,18 @@ The **Multibranch Pipeline** project type enables you to implement different Jen
 
 This eliminates the need for manual Pipeline creation and management.
 
+# Why did we move to Multibranch Pipeline?
+
+Before moving to Pipeline, we used to create a separate job for each environment (dev, qa, uat and production) which was time taking. The number of jobs kept on increasing which became really hard to manage. Pipeline jobs made complete sense in our case because we had a standardized branching strategy in our version control, with each branch mapping to each environment. In most cases, the code was consistent across branches controlled by variables, which led to creating a generic _Jenkinsfile_.
+
+# What are benefits of Jenkins’ multi-branch pipeline?
+
+  - **Pipeline as Code:** We are tracking every change to the CI/CD workflow by maintaining it with application code in version control.
+  - **Reducing the number of jobs:** Earlier we used to create a job for each branch, as the number of applications increased the number of jobs also increased. By creating Multibranch Pipeline the number of jobs reduced by 75 percent. This is a huge drop, and our Jenkins box looks a lot cleaner now.
+  - **CI part of the Pipeline:** Before moving to pipelines, we used to have a dedicated CI job for each application. Now CI is a part of the one pipeline job. We could use conditions(eg; when) in our Jenkinsfile to achieve this.
+  - **Better Troubleshooting when the Job fails:** Since the whole Pipeline is divided into multiple stages, whenever there is an issue you can pin-point at which stage the error happened and the troubleshooting becomes more focused.
+  - Backup of Pipeline: We have a backup of our pipeline which can be easily restored in case of a crash.
+
 # Create a "Develop" branch from the "Master" branch of the repository
 
 ![image](https://user-images.githubusercontent.com/90503660/136668389-344b4e93-1cb0-482e-a7ca-f02401996c2a.png)
