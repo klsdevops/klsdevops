@@ -68,3 +68,21 @@ Cannot connect to the Docker daemon. Is the docker daemon running on this host?
 
 ![image](https://user-images.githubusercontent.com/90503660/137363185-a8cae334-b08a-49b3-9122-adac0f48cb22.png)
 
+
+# Easy method using the script for Linux Distros
+
+The purpose of the install script is for a convenience for quickly installing the latest Docker-CE releases on the supported linux distros. 
+It is not recommended to depend on this script for deployment to production systems
+
+```
+curl -fsSL https://get.docker.com/ | sh
+
+```
+
+![image](https://user-images.githubusercontent.com/90503660/137366336-389c6c0a-bc06-4dab-80e6-35febb04f366.png)
+
+Start the docker services & Verify the Docker Version installed
+
+![image](https://user-images.githubusercontent.com/90503660/137366491-4fef7d9f-ac65-40ac-8c0a-b5d9e1d23e1d.png)
+
+
