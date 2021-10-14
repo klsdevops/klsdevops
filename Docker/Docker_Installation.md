@@ -76,7 +76,6 @@ It is not recommended to depend on this script for deployment to production syst
 
 ```
 curl -fsSL https://get.docker.com/ | sh
-
 ```
 
 ![image](https://user-images.githubusercontent.com/90503660/137366336-389c6c0a-bc06-4dab-80e6-35febb04f366.png)
