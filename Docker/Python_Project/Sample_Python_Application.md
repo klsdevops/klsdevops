@@ -217,5 +217,24 @@ eg; http://18.220.21.171:8080/
 
 ![image](https://user-images.githubusercontent.com/90503660/137614102-dcfd6edf-3a3c-48ab-a0af-ba05e35007c1.png)
 
-# Now push the image to the Dockerhub
+## Now push the image to the Dockerhub
 
+* Tag your image with the registry name
+* Login to docker Registry
+* push the image to the Registry
+
+```
+docker tag sample-python-webapp:latest klsdevops/sample-python-webapp:latest
+docker login
+docker push klsdevops/sample-python-webapp
+```
+
+![image](https://user-images.githubusercontent.com/90503660/137614319-26505ad0-b541-4da2-9933-d4a3d945ad7c.png)
+
+## Verify on the DockerHub
+
+![image](https://user-images.githubusercontent.com/90503660/137617501-6b9ec3b6-984b-429a-b25b-e80c4d94c396.png)
+
+# This is how you will containerize an application and make it portable.
+
+This image can be downloaded to any other machine & can be deployed there.
