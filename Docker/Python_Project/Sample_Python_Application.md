@@ -1,7 +1,8 @@
 # How to containerize a Python Application ?
 
 ## Pre-Requisites
-* Docker
+* Docker installed on a machine
+* Source code of Python application
 
 Ensure Docker is installed
 
