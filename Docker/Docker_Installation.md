@@ -9,6 +9,7 @@ sudo yum update -y
 
 
 2. Install the most recent Docker Engine package.
+
   **For Amazon Linux 2:**
 ```
 sudo amazon-linux-extras install docker
