@@ -122,4 +122,81 @@ You could verify it on the Docker Hub repository
 
 ![image](https://user-images.githubusercontent.com/90503660/138560825-62df12da-78f5-4575-9b1c-0e585a5f2cdc.png)
 
+# Now we need to perform the Application Deployment.
+
+So far what we have done is the below as part of Build Pipeline (CI)
+1. Build the application(Maven Build)
+2. Package it as a docker image
+3. Pushed the application image to the Docker Registry.
+
+Now we need to deploy this application to a target deployment server. Hence we will have to do few more activities
+1. Launch a Target Machine (EC2 instance)
+2. Install Docker on it
+3. Setup the docker daemon to 
+4. Update the Jenkins Pipeline with the deployment steps
+5. Execute the Pipeline & verify the Results
+
+## 1. Launch a Deployment Server(Docker Host) target machine
+
+![image](https://user-images.githubusercontent.com/90503660/138561155-42ac7e75-4f53-47e4-a1b0-6121ba80dd65.png)
+
+## 2. Install Docker on to it
+
+Refer https://github.com/klsdevops/klsdevops/blob/main/Docker/Docker_Installation.md
+
+## 3. Update the Jenkins Pipeline with the deployment steps
+
+Add another post build action to execute the docker deployment commands
+
+```
+#docker -H tcp://13.58.253.153:2375 stop tomcat-prod-app
+#docker -H tcp://13.58.253.153:2375 rm tomcat-prod-app
+docker -H tcp://13.58.253.153:2375 run -it -d --name tomcat-prod-app -p 8080:8080 klsdevops/tomcat-app:$BUILD_NUMBER
+```
+
+![image](https://user-images.githubusercontent.com/90503660/138563439-e813a041-f5ae-4b02-9b9f-b3fc29c7b50a.png)
+
+**NOTE:**
+13.58.253.153 is the Docker Host IP Address
+2375 is the unencrypted docker socket, remote root passwordless access to the host
+**Also ensure to enable the port 2375 in your AWS Security Group inbound rules**
+
+Here after executing the pipeline, you would see that its failing because it can not connect to the docker daemon on the Docker Host machine
+
+![image](https://user-images.githubusercontent.com/90503660/138562106-1ad6d618-ac81-476d-b518-479a284ce54a.png)
+
+To rectify this issue, you should update some docker settings in the Docker Host Machine.
+
+Edit the "/usr/lib/systemd/system/docker.service" file & add " -H tcp://0.0.0.0:2375 " to the "ExecStart=/usr/bin/dockerd -H fd:// " line
+
+![image](https://user-images.githubusercontent.com/90503660/138562478-6f066d2f-ef1f-49ea-8d91-3831c3a80594.png)
+
+The below is the complete process for updating the settings
+
+![image](https://user-images.githubusercontent.com/90503660/138563017-51c6d38a-a5d7-4acd-a9ba-e91529cb065e.png)
+
+```
+netstat -lntp | grep dockerd
+systemctl status docker.service
+vi /usr/lib/systemd/system/docker.service
+    # amend "ExecStart" line with -H tcp://0.0.0.0:2375
+systemctl daemon-reload
+systemctl restart docker.service
+netstat -lntp | grep dockerd
+```
+## Now build the pipeline again and see the results
+
+![image](https://user-images.githubusercontent.com/90503660/138563489-c493e382-199c-426e-9cc5-450d5a55abce.png)
+
+You could see the build is successful at the Jenkins end.
+
+You could verify the same on the Docker Host Machine as well,
+
+![image](https://user-images.githubusercontent.com/90503660/138563513-e1db647b-905b-4b3f-a267-bb593b8cf3a9.png)
+
+A container "tomcat-prod-app" is running on this machine.
+
+# Verify the application from the browser
+
+![image](https://user-images.githubusercontent.com/90503660/138563539-e2642f07-2b70-4040-a096-13a23d0387da.png)
 
