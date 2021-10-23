@@ -68,3 +68,52 @@ Now test the connectivity from Jenkins again and ensure its success,
 ![image](https://user-images.githubusercontent.com/90503660/138027429-227b335e-9a25-45d3-929e-6c62c639c3a7.png)
 
 Save the settings.
+
+# After setting up the docker & Jenkins connectivity, create a deployment pipeline on the Jenkins Console which copies the artifact to the Docker Host
+
+![image](https://user-images.githubusercontent.com/90503660/138552275-5be0f83d-860a-4e48-9c52-a97d91123200.png)
+
+Instead of creating a new job, we could copy from our existing job itself,
+
+![image](https://user-images.githubusercontent.com/90503660/138552295-300bada5-8b85-4628-a5a9-de8baf403be6.png)
+
+## Since we are not going to install to a VM directly, we could remove this from our existing pipeline
+
+![image](https://user-images.githubusercontent.com/90503660/138552349-f81df8e9-f6f2-4e72-9f1d-27cece41dd0b.png)
+
+## Select "Send Build artifact over SSH" from the "Post Build Actions" dropdown
+
+![image](https://user-images.githubusercontent.com/90503660/138552390-ed1b93ba-67b0-4a96-b59a-c1ee6ec4e350.png)
+
+Provide the details
+  1. Select the Docker Host Machine as SSH Server
+  2. Provide relative path of Source File to be transferred(eg; webapps/target/*.war) or if you dont know the exact location provide "**/*.war"
+  3. Provide the remote directory location. We are giving it as "." as we need it to be available on the current directory(/home/dockeradmin)
+ 
+![image](https://user-images.githubusercontent.com/90503660/138552827-9dd0a7d5-f50a-458c-b9f5-f27b55e63dc0.png)
+
+## Verify on the Docker Host before executing the job
+
+![image](https://user-images.githubusercontent.com/90503660/138552870-5b0d1b9a-8483-4279-9520-84eea3641dde.png)
+
+## Build the job to test if the war file is getting copied to the Docker Host.
+
+![image](https://user-images.githubusercontent.com/90503660/138552972-09e9a444-4d85-4e33-9bb7-45f61c4f5417.png)
+
+## You could see the build is success & a file is transferred successfully.
+
+## Verify the same on the docker host again
+
+![image](https://user-images.githubusercontent.com/90503660/138553030-2a6c0d6d-de95-41bf-8160-c1fe80ebdfae.png)
+
+## Now if you dont need the folder structure to be copied(webapp/target) and instead only the war file to be copied, we could configure/modify our job to remove prefix
+
+![image](https://user-images.githubusercontent.com/90503660/138553113-2bfe0fa5-c629-4991-811b-c5d9ae386365.png)
+
+## Now lets remove the current copied file from the Docker Host & execute the job one more time.
+
+![image](https://user-images.githubusercontent.com/90503660/138553218-bb69ec17-fb8e-421e-b0e2-003fb3e59f2e.png)
+
+## Now you could see its not copying the folder structure, but only the war file.
+
+![image](https://user-images.githubusercontent.com/90503660/138553229-8492f5e0-e339-478b-be84-ca7d370a2157.png)
