@@ -108,8 +108,18 @@ You could check on the Jenkins Server & see a new image has been created there
 
 ![image](https://user-images.githubusercontent.com/90503660/138510761-f27b4c8a-161e-4b70-9af9-bc58aff70052.png)
 
+**NOTE:** 
+You could leave the **_Docker Host URI_** as blank as of now.
+You could keep the **_Docker Registry URL_** as empty as it takes dockerhub by default.
+
 ## 8. Execute the pipeline & see how the Build and Deployment is happening
 
 ![image](https://user-images.githubusercontent.com/90503660/138560457-9da53a3d-a8c2-4291-bd9d-95f68518e29d.png)
+
+So this is creating a docker image of our application & pushing it to the Docker Registry(DockerHub).
+
+You could verify it on the Docker Hub repository
+
+![image](https://user-images.githubusercontent.com/90503660/138560825-62df12da-78f5-4575-9b1c-0e585a5f2cdc.png)
 
 
