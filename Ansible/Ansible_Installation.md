@@ -121,6 +121,10 @@ Ensure "_PasswordAuthentication_" is enabled here as well as this is also a Amaz
 
 ![image](https://user-images.githubusercontent.com/90503660/138582328-ba30dd21-b349-467b-b9d6-a392d5f492a3.png)
 
+Also add "_ansadmin_" user to the "_docker_" group
+
+![image](https://user-images.githubusercontent.com/90503660/138590185-d5403c2a-49f4-4be4-b0cf-51339cc905e5.png)
+
 11. Go to the **Ansible Controller** Machine and switch to "_ansadmin_" user & copy the rsa key to the **DockerHost** machine 
 
 ```
