@@ -188,7 +188,7 @@ Create a new item from existing project
 
 From the existing pipeline **remove the Docker part** & Add Ansible execution part to the pipeline,
 
-![image](https://user-images.githubusercontent.com/90503660/138589282-24aff33d-427b-4df5-a6b9-cb98d5fb68ed.png)
+![image](https://user-images.githubusercontent.com/90503660/138592961-adbc6b1d-99d9-43f4-8129-d3382b7f39ce.png)
 
 Replace it with the below Ansible content
 
