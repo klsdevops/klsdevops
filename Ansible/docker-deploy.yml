@@ -1,0 +1,27 @@
+```
+---
+- hosts: all
+  become: true
+  tasks:
+  - name: stop if we have old docker container
+    command: docker stop tomcat-app-container
+    ignore_errors: yes
+
+  - name: remove stopped docker container
+    command: docker rm tomcat-app-container
+    ignore_errors: yes
+
+  - name: remove current docker image
+    command: docker rmi klsdevops/tomcat-app
+    ignore_errors: yes
+#    register: result
+#    failed_when:
+#      - result.rc == 0
+#      - '"docker" not in result.stdout'
+
+  - name: pull docker image
+    command: docker pull klsdevops/tomcat-app
+
+  - name: creating docker image
+    command: docker run -d --name tomcat-app-container -p 8080:8080 klsdevops/tomcat-app
+```
