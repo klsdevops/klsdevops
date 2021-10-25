@@ -1,4 +1,4 @@
-```
+#--- YYY ---
 ---
 - hosts: all
   become: true
@@ -24,4 +24,3 @@
 
   - name: creating docker image
     command: docker run -d --name tomcat-app-container -p 8080:8080 klsdevops/tomcat-app
-```
