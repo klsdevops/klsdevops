@@ -1,0 +1,28 @@
+```
+# Option-1 : Creating docker image using command module 
+---
+- hosts: all
+  become: true
+  tasks:
+  - name: building docker image
+    command: docker build -t klsdevops/tomcat-app .
+    args:
+      chdir: /opt/docker
+      
+  - name: push image to Docker Hub
+    command: docker push klsdevops/tomcat-app
+
+  - name: Remove docker images from ansible controller
+    command: docker rmi klsdevops/tomcat-app
+    ignore_errors: yes
+
+# option-2 : creating docker image using docker_image module 
+#  tasks:
+#  - name: building docker image
+#    docker_image:
+#      build:
+#        path: /opt/docker
+#      name: klsdevops/tomcat-app
+#     tag: v1
+#     source: build
+```
