@@ -1,4 +1,4 @@
-```
+# --- YYY ---
 # Option-1 : Creating docker image using command module 
 ---
 - hosts: all
@@ -25,4 +25,3 @@
 #      name: klsdevops/tomcat-app
 #     tag: v1
 #     source: build
-```
