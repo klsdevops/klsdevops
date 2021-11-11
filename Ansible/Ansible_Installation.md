@@ -5,6 +5,7 @@ Ansible is an open-source automation platform. Ansible can help you with configu
 ## Pre-requisites
 * An AWS EC2 instance (Control node)
 * Python
+* SSH Connectivity
 
 ## Installation steps:
 On Amazon EC2 instance
