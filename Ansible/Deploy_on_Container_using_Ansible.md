@@ -174,11 +174,11 @@ COPY ./webapp.war /usr/local/tomcat/webapps
   - name: pull docker image
     command: docker pull klsdevops/tomcat-app
 
-  - name: creating docker image
+  - name: creating docker container
     command: docker run -d --name tomcat-app-container -p 8080:8080 klsdevops/tomcat-app
 ```
 
-![image](https://user-images.githubusercontent.com/90503660/138590457-2cb062d4-6760-41cc-981b-77e4e420e206.png)
+![image](https://user-images.githubusercontent.com/90503660/141506076-f8a85545-e3f0-43e9-850c-14a6372ed7e0.png)
 
 ## 10. Create a Jenkins job for CICD (we can copy from our existing jobs)
 
