@@ -7,7 +7,7 @@
 2. A Docker Host Machine
 3. An Ansible Controller Machine
 4. Connectivity between Ansible Controller & Jenkins
-5. Connectivity between Ansible Controller & Docker Host
+5. Connectivity between Ansible Controller & Docker Host(Target Machine)
 6. Connectivity between Ansible Controller & Docker Hub
 7. A Dockerfile
 8. A playbook for building the latest image with the Dockerfile
