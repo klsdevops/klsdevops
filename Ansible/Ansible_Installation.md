@@ -89,7 +89,7 @@ You could see the rsa keys are generated under ".ssh" directory
 ssh-copy-id ansadmin@<target-server>
 ```
 
-9. Since in our example/demo we are going to do a docker deployment through Jenkins machine, we need to install Docker on the Ansible Controller & then copy the rsa keys to the Docker Host machine.
+9. Since in our example/demo we are going to do a docker deployment through Jenkins machine using ansible playbooks, we need to install Docker on the Ansible Controller & then copy the rsa keys to the Docker Host machine.
 
 ```
 yum install -y docker
