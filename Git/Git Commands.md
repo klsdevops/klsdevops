@@ -941,3 +941,11 @@ KLSDEVOPS@LAPTOP-SME4GNLK MINGW64 /d/ZuchiD/DevOps/KLSDevOps Trainings/Sept 2021
 $
 
 ```
+# TO SEE THE GRAPHICAL REPRESENTATION OF LOGS
+
+```
+git log --graph
+```
+
+![image](https://user-images.githubusercontent.com/90503660/152688819-2d5dfad2-5e3c-444c-b4af-8e1a536d50c5.png)
+
