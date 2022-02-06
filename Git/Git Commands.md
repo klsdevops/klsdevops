@@ -949,3 +949,11 @@ git log --graph
 
 ![image](https://user-images.githubusercontent.com/90503660/152688819-2d5dfad2-5e3c-444c-b4af-8e1a536d50c5.png)
 
+
+### Graph all git branches decorated with colour & oneline
+
+```
+git log --all --decorate --oneline --graph
+```
+![image](https://user-images.githubusercontent.com/90503660/152689112-97b6ebe2-87dd-4244-8d8d-7a807de5ded2.png)
+
