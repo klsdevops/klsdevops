@@ -165,7 +165,7 @@ $
 
 ```
 
-### Check the commit history, you could see the laterst commit from _master_ branch along with the first commit from _master_ branch.
+### Check the commit history, you could see the latest commit from _master_ branch along with the first commit from _master_ branch.
 
 ```
 
