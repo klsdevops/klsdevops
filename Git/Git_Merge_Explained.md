@@ -7,9 +7,12 @@
 
 **Preparing to merge:** Before performing a merge there are a couple of preparation steps to take to ensure the merge goes smoothly.
 
-**Confirm the receiving branch:** Execute git status to ensure that HEAD is pointing to the correct merge-receiving branch. 
+**Confirm the receiving branch:** Execute git log to ensure that HEAD is pointing to the correct merge-receiving branch. 
 
-  ```$ git checkout main```
+  ```
+     $ git checkout main
+     $ git log --oneline
+  ```
   
 **Fetch latest remote commits:** Make sure the receiving branch and the merging branch are up-to-date with the latest remote changes.
 
