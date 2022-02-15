@@ -493,12 +493,12 @@ Turn off this advice by setting config variable advice.detachedHead to false
 
 HEAD is now at 89feb84 README.md edited online with Bitbucket
 
-KLSDEVOPS@LAPTOP-SME4GNLK MINGW64 /d/ZuchiD/DevOps/KLSDevOps Trainings/Sept 2021/GIT/git-blame-example ((89feb84...))
+KLSDEVOPS@LAPTOP-SME4GNLK MINGW64 /d/DevOps/KLSDevOps Trainings/Sept 2021/GIT/git-blame-example ((89feb84...))
 $ ls -ltr
 total 4
 -rw-r--r-- 1 KLSDEVOPS 197121 775 Sep 26 13:44 README.md
 
-KLSDEVOPS@LAPTOP-SME4GNLK MINGW64 /d/ZuchiD/DevOps/KLSDevOps Trainings/Sept 2021/GIT/git-blame-example ((89feb84...))
+KLSDEVOPS@LAPTOP-SME4GNLK MINGW64 /d/DevOps/KLSDevOps Trainings/Sept 2021/GIT/git-blame-example ((89feb84...))
 $ cat README.md 
 # Git Blame example
 
@@ -509,7 +509,7 @@ The repo use used elsewhere to demonstrate `git blame`
 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod TEMPOR incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
 
 Annotates each line in the given file with information from the revision which last modified the line. Optionally, start annotating from the given revision.
-KLSDEVOPS@LAPTOP-SME4GNLK MINGW64 /d/ZuchiD/DevOps/KLSDevOps Trainings/Sept 2021/GIT/git-blame-example ((89feb84...))
+KLSDEVOPS@LAPTOP-SME4GNLK MINGW64 /d/DevOps/KLSDevOps Trainings/Sept 2021/GIT/git-blame-example ((89feb84...))
 $
 
 ```
@@ -535,35 +535,122 @@ A revert is an operation that takes a specified commit and creates a new commit 
 
 ```
 
-$ git revert HEAD
 
-If we execute "git revert HEAD", Git will create a new commit with the inverse of the last commit. This adds a new commit to the current branch history
-
+KLSDEVOPS@LAPTOP-SME4GNLK MINGW64 ~/Desktop/branch-testing-repo (master)
 $ git log --oneline
-548dabe (HEAD -> master, origin/master, origin/HEAD) Another commit to help git blame track the who, the what, and the when
-eb06fae Creating the third commit, along with Kev and Albert, so that Kev can get git blame docs.
-990c2b6 Merged in albert-so/git-blame-example/albert-so/readmemd-edited-online-with-bitbucket-1519865641474 (pull request #2)
-89feb84 README.md edited online with Bitbucket
-82496ea add some filler content to the README
-fefb662 initial commit add empty readme
+6177785 (HEAD -> master, testrebasebr) another commit before rebase
+a21d0bc some test file before rebase
+eb758ef (origin/master, origin/HEAD) for testing rebase
+69c2d83 (test-cherry) adding cherry3
+dba2598 adding cherry2
+ea9674c adding cherry1
+487f630 rebase additions
+2e7d73c fix for cherry
+a5271b9 merge conflicts resolved
+421900a added contents from master
+00f6945 (branch_for_conflict) some contents added to README
+f798562 Merging branch '3way-feature' to master
+fdb6770 added new file from master
+3835b19 (3way-feature) commiting on 3 way branch
+d9a5ef6 (new-feature) added contents for merge
+be32b99 Initial commit
 
-KLSDEVOPS@LAPTOP-SME4GNLK MINGW64 /d/ZuchiD/DevOps/KLSDevOps Trainings/Sept 2021/GIT/git-blame-example (master)
-$ git revert HEAD
-[master 439aac1] Revert "Another commit to help git blame track the who, the what, and the when"
-        1 file changed, 1 insertion(+), 3 deletions(-)
+KLSDEVOPS@LAPTOP-SME4GNLK MINGW64 ~/Desktop/branch-testing-repo (master)
+$ ls -ltr
+total 9
+-rw-r--r-- 1 KLSDEVOPS 197121   0 Feb 10 21:20 testfile
+-rw-r--r-- 1 KLSDEVOPS 197121 137 Feb 10 21:51 README.md
+-rw-r--r-- 1 KLSDEVOPS 197121  35 Feb 13 19:44 fix
+-rw-r--r-- 1 KLSDEVOPS 197121   9 Feb 13 20:40 testrebase
+-rw-r--r-- 1 KLSDEVOPS 197121  18 Feb 13 20:42 cherry1
+-rw-r--r-- 1 KLSDEVOPS 197121  19 Feb 13 20:42 cherry2
+-rw-r--r-- 1 KLSDEVOPS 197121  18 Feb 13 20:42 cherry3
+-rw-r--r-- 1 KLSDEVOPS 197121  28 Feb 14 07:55 rebase
+-rw-r--r-- 1 KLSDEVOPS 197121  23 Feb 14 07:57 sometest
+-rw-r--r-- 1 KLSDEVOPS 197121  38 Feb 14 07:57 anothertest
 
-KLSDEVOPS@LAPTOP-SME4GNLK MINGW64 /d/ZuchiD/DevOps/KLSDevOps Trainings/Sept 2021/GIT/git-blame-example (master)
+KLSDEVOPS@LAPTOP-SME4GNLK MINGW64 ~/Desktop/branch-testing-repo (master)
+$ cat README.md
+# branch-testing-repo
+adding some content for 3 way merge
+adding a line from 3way branch
+adding some contents from the master branch
+
+KLSDEVOPS@LAPTOP-SME4GNLK MINGW64 ~/Desktop/branch-testing-repo (master)
+$ vi README.md
+
+KLSDEVOPS@LAPTOP-SME4GNLK MINGW64 ~/Desktop/branch-testing-repo (master)
+$ git add .
+
+KLSDEVOPS@LAPTOP-SME4GNLK MINGW64 ~/Desktop/branch-testing-repo (master)
+$ git commit -m "needs to be removed"
+[master a8bc814] needs to be removed
+ 1 file changed, 1 insertion(+)
+
+KLSDEVOPS@LAPTOP-SME4GNLK MINGW64 ~/Desktop/branch-testing-repo (master)
 $ git log --oneline
-439aac1 (HEAD -> master) Revert "Another commit to help git blame track the who, the what, and the when"
-548dabe (origin/master, origin/HEAD) Another commit to help git blame track the who, the what, and the when
-eb06fae Creating the third commit, along with Kev and Albert, so that Kev can get git blame docs.
-990c2b6 Merged in albert-so/git-blame-example/albert-so/readmemd-edited-online-with-bitbucket-1519865641474 (pull request #2)
-89feb84 README.md edited online with Bitbucket
-82496ea add some filler content to the README
-fefb662 initial commit add empty readme
+a8bc814 (HEAD -> master) needs to be removed
+6177785 (testrebasebr) another commit before rebase
+a21d0bc some test file before rebase
+eb758ef (origin/master, origin/HEAD) for testing rebase
+69c2d83 (test-cherry) adding cherry3
+dba2598 adding cherry2
+ea9674c adding cherry1
+487f630 rebase additions
+2e7d73c fix for cherry
+a5271b9 merge conflicts resolved
+421900a added contents from master
+00f6945 (branch_for_conflict) some contents added to README
+f798562 Merging branch '3way-feature' to master
+fdb6770 added new file from master
+3835b19 (3way-feature) commiting on 3 way branch
+d9a5ef6 (new-feature) added contents for merge
+be32b99 Initial commit
 
-KLSDEVOPS@LAPTOP-SME4GNLK MINGW64 /d/ZuchiD/DevOps/KLSDevOps Trainings/Sept 2021/GIT/git-blame-example (master)
+KLSDEVOPS@LAPTOP-SME4GNLK MINGW64 ~/Desktop/branch-testing-repo (master)
+$ cat README.md
+# branch-testing-repo
+adding some content for 3 way merge
+adding a line from 3way branch
+adding some contents from the master branch
+this needs to be removed
+
+KLSDEVOPS@LAPTOP-SME4GNLK MINGW64 ~/Desktop/branch-testing-repo (master)
+$ git revert HEAD
+[master 9b2b110] Revert "needs to be removed"
+ 1 file changed, 1 deletion(-)
+
+KLSDEVOPS@LAPTOP-SME4GNLK MINGW64 ~/Desktop/branch-testing-repo (master)
+$ cat README.md
+# branch-testing-repo
+adding some content for 3 way merge
+adding a line from 3way branch
+adding some contents from the master branch
+
+KLSDEVOPS@LAPTOP-SME4GNLK MINGW64 ~/Desktop/branch-testing-repo (master)
+$ git log --oneline
+9b2b110 (HEAD -> master) Revert "needs to be removed"
+a8bc814 needs to be removed
+6177785 (testrebasebr) another commit before rebase
+a21d0bc some test file before rebase
+eb758ef (origin/master, origin/HEAD) for testing rebase
+69c2d83 (test-cherry) adding cherry3
+dba2598 adding cherry2
+ea9674c adding cherry1
+487f630 rebase additions
+2e7d73c fix for cherry
+a5271b9 merge conflicts resolved
+421900a added contents from master
+00f6945 (branch_for_conflict) some contents added to README
+f798562 Merging branch '3way-feature' to master
+fdb6770 added new file from master
+3835b19 (3way-feature) commiting on 3 way branch
+d9a5ef6 (new-feature) added contents for merge
+be32b99 Initial commit
+
+KLSDEVOPS@LAPTOP-SME4GNLK MINGW64 ~/Desktop/branch-testing-repo (master)
 $
+
 
 OR
 
@@ -585,7 +672,7 @@ If we invoke "git reset --hard 990c2b6" the commit history is reset to that spec
 
 ```
 
-KLSDEVOPS@LAPTOP-SME4GNLK MINGW64 /d/ZuchiD/DevOps/KLSDevOps Trainings/Sept 2021/GIT/git-blame-example (master)
+KLSDEVOPS@LAPTOP-SME4GNLK MINGW64 /d/DevOps/KLSDevOps Trainings/Sept 2021/GIT/git-blame-example (master)
 $ git log --oneline
 439aac1 (HEAD -> master) Revert "Another commit to help git blame track the who, the what, and the when"
 548dabe (origin/master, origin/HEAD) Another commit to help git blame track the who, the what, and the when
@@ -595,21 +682,21 @@ eb06fae Creating the third commit, along with Kev and Albert, so that Kev can ge
 82496ea add some filler content to the README
 fefb662 initial commit add empty readme
 
-KLSDEVOPS@LAPTOP-SME4GNLK MINGW64 /d/ZuchiD/DevOps/KLSDevOps Trainings/Sept 2021/GIT/git-blame-example (master)
+KLSDEVOPS@LAPTOP-SME4GNLK MINGW64 /d/DevOps/KLSDevOps Trainings/Sept 2021/GIT/git-blame-example (master)
 $
 
-KLSDEVOPS@LAPTOP-SME4GNLK MINGW64 /d/ZuchiD/DevOps/KLSDevOps Trainings/Sept 2021/GIT/git-blame-example (master)
+KLSDEVOPS@LAPTOP-SME4GNLK MINGW64 /d/DevOps/KLSDevOps Trainings/Sept 2021/GIT/git-blame-example (master)
 $ git reset --hard 990c2b6
 HEAD is now at 990c2b6 Merged in albert-so/git-blame-example/albert-so/readmemd-edited-online-with-bitbucket-1519865641474 (pull request #2)
 
-KLSDEVOPS@LAPTOP-SME4GNLK MINGW64 /d/ZuchiD/DevOps/KLSDevOps Trainings/Sept 2021/GIT/git-blame-example (master)
+KLSDEVOPS@LAPTOP-SME4GNLK MINGW64 /d/DevOps/KLSDevOps Trainings/Sept 2021/GIT/git-blame-example (master)
 $ git log --oneline
 990c2b6 (HEAD -> master) Merged in albert-so/git-blame-example/albert-so/readmemd-edited-online-with-bitbucket-1519865641474 (pull request #2)
 89feb84 README.md edited online with Bitbucket
 82496ea add some filler content to the README
 fefb662 initial commit add empty readme
 
-KLSDEVOPS@LAPTOP-SME4GNLK MINGW64 /d/ZuchiD/DevOps/KLSDevOps Trainings/Sept 2021/GIT/git-blame-example (master)
+KLSDEVOPS@LAPTOP-SME4GNLK MINGW64 /d/DevOps/KLSDevOps Trainings/Sept 2021/GIT/git-blame-example (master)
 $
 
 ```
@@ -628,7 +715,7 @@ In some cases though, you might not need to remove or reset the last commit. May
 
 ```
 
-KLSDEVOPS@LAPTOP-SME4GNLK MINGW64 /d/ZuchiD/DevOps/KLSDevOps Trainings/Sept 2021/GIT/git-blame-example (master)
+KLSDEVOPS@LAPTOP-SME4GNLK MINGW64 /d/DevOps/KLSDevOps Trainings/Sept 2021/GIT/git-blame-example (master)
 $ git status
 On branch master
 Your branch is behind 'origin/master' by 2 commits, and can be fast-forwarded.
@@ -636,22 +723,22 @@ Your branch is behind 'origin/master' by 2 commits, and can be fast-forwarded.
 
 nothing to commit, working tree clean
 
-KLSDEVOPS@LAPTOP-SME4GNLK MINGW64 /d/ZuchiD/DevOps/KLSDevOps Trainings/Sept 2021/GIT/git-blame-example (master)
+KLSDEVOPS@LAPTOP-SME4GNLK MINGW64 /d/DevOps/KLSDevOps Trainings/Sept 2021/GIT/git-blame-example (master)
 $ git log --oneline
 990c2b6 (HEAD -> master) Merged in albert-so/git-blame-example/albert-so/readmemd-edited-online-with-bitbucket-1519865641474 (pull request #2)
 89feb84 README.md edited online with Bitbucket
 82496ea add some filler content to the README
 fefb662 initial commit add empty readme
 
-KLSDEVOPS@LAPTOP-SME4GNLK MINGW64 /d/ZuchiD/DevOps/KLSDevOps Trainings/Sept 2021/GIT/git-blame-example (master)
+KLSDEVOPS@LAPTOP-SME4GNLK MINGW64 /d/DevOps/KLSDevOps Trainings/Sept 2021/GIT/git-blame-example (master)
 $ ls -ltr
 total 4
 -rw-r--r-- 1 KLSDEVOPS 197121 775 Sep 26 14:23 README.md
 
-KLSDEVOPS@LAPTOP-SME4GNLK MINGW64 /d/ZuchiD/DevOps/KLSDevOps Trainings/Sept 2021/GIT/git-blame-example (master)
+KLSDEVOPS@LAPTOP-SME4GNLK MINGW64 /d/DevOps/KLSDevOps Trainings/Sept 2021/GIT/git-blame-example (master)
 $ vi README.md
 
-KLSDEVOPS@LAPTOP-SME4GNLK MINGW64 /d/ZuchiD/DevOps/KLSDevOps Trainings/Sept 2021/GIT/git-blame-example (master)
+KLSDEVOPS@LAPTOP-SME4GNLK MINGW64 /d/DevOps/KLSDevOps Trainings/Sept 2021/GIT/git-blame-example (master)
 $ git status
 On branch master
 Your branch is behind 'origin/master' by 2 commits, and can be fast-forwarded.
@@ -664,7 +751,7 @@ Changes not staged for commit:
 
 no changes added to commit (use "git add" and/or "git commit -a")
 
-KLSDEVOPS@LAPTOP-SME4GNLK MINGW64 /d/ZuchiD/DevOps/KLSDevOps Trainings/Sept 2021/GIT/git-blame-example (master)
+KLSDEVOPS@LAPTOP-SME4GNLK MINGW64 /d/DevOps/KLSDevOps Trainings/Sept 2021/GIT/git-blame-example (master)
 $ cat  README.md 
 # Git Blame example
 this is an unwanted line
@@ -677,10 +764,10 @@ Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod TEMPOR 
 
 Annotates each line in the given file with information from the revision which last modified the line. Optionally, start annotating from the given revision.
 
-KLSDEVOPS@LAPTOP-SME4GNLK MINGW64 /d/ZuchiD/DevOps/KLSDevOps Trainings/Sept 2021/GIT/git-blame-example (master)
+KLSDEVOPS@LAPTOP-SME4GNLK MINGW64 /d/DevOps/KLSDevOps Trainings/Sept 2021/GIT/git-blame-example (master)
 $ git restore README.md
 
-KLSDEVOPS@LAPTOP-SME4GNLK MINGW64 /d/ZuchiD/DevOps/KLSDevOps Trainings/Sept 2021/GIT/git-blame-example (master)
+KLSDEVOPS@LAPTOP-SME4GNLK MINGW64 /d/DevOps/KLSDevOps Trainings/Sept 2021/GIT/git-blame-example (master)
 $ cat README.md 
 # Git Blame example
 
@@ -691,7 +778,7 @@ The repo use used elsewhere to demonstrate `git blame`
 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod TEMPOR incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
 
 Annotates each line in the given file with information from the revision which last modified the line. Optionally, start annotating from the given revision.
-KLSDEVOPS@LAPTOP-SME4GNLK MINGW64 /d/ZuchiD/DevOps/KLSDevOps Trainings/Sept 2021/GIT/git-blame-example (master)
+KLSDEVOPS@LAPTOP-SME4GNLK MINGW64 /d/DevOps/KLSDevOps Trainings/Sept 2021/GIT/git-blame-example (master)
 $ git status
 On branch master
 Your branch is behind 'origin/master' by 2 commits, and can be fast-forwarded.
@@ -699,7 +786,7 @@ Your branch is behind 'origin/master' by 2 commits, and can be fast-forwarded.
 
 nothing to commit, working tree clean
 
-KLSDEVOPS@LAPTOP-SME4GNLK MINGW64 /d/ZuchiD/DevOps/KLSDevOps Trainings/Sept 2021/GIT/git-blame-example (master)
+KLSDEVOPS@LAPTOP-SME4GNLK MINGW64 /d/DevOps/KLSDevOps Trainings/Sept 2021/GIT/git-blame-example (master)
 $
 
 ```
@@ -717,15 +804,15 @@ The git stash command takes your uncommitted changes (both staged and unstaged),
 
 ```
 
-KLSDEVOPS@LAPTOP-SME4GNLK MINGW64 /d/ZuchiD/DevOps/KLSDevOps Trainings/Sept 2021/GIT/git-blame-example (rebase-branch)
+KLSDEVOPS@LAPTOP-SME4GNLK MINGW64 /d/DevOps/KLSDevOps Trainings/Sept 2021/GIT/git-blame-example (rebase-branch)
 $ git status
 On branch rebase-branch
 nothing to commit, working tree clean
 
-KLSDEVOPS@LAPTOP-SME4GNLK MINGW64 /d/ZuchiD/DevOps/KLSDevOps Trainings/Sept 2021/GIT/git-blame-example (rebase-branch)
+KLSDEVOPS@LAPTOP-SME4GNLK MINGW64 /d/DevOps/KLSDevOps Trainings/Sept 2021/GIT/git-blame-example (rebase-branch)
 $ vi README.md
 
-KLSDEVOPS@LAPTOP-SME4GNLK MINGW64 /d/ZuchiD/DevOps/KLSDevOps Trainings/Sept 2021/GIT/git-blame-example (rebase-branch)
+KLSDEVOPS@LAPTOP-SME4GNLK MINGW64 /d/DevOps/KLSDevOps Trainings/Sept 2021/GIT/git-blame-example (rebase-branch)
 $ git status
 On branch rebase-branch
 Changes not staged for commit:
@@ -735,10 +822,10 @@ Changes not staged for commit:
 
 no changes added to commit (use "git add" and/or "git commit -a")
 
-KLSDEVOPS@LAPTOP-SME4GNLK MINGW64 /d/ZuchiD/DevOps/KLSDevOps Trainings/Sept 2021/GIT/git-blame-example (rebase-branch)
+KLSDEVOPS@LAPTOP-SME4GNLK MINGW64 /d/DevOps/KLSDevOps Trainings/Sept 2021/GIT/git-blame-example (rebase-branch)
 $ git add .
 
-KLSDEVOPS@LAPTOP-SME4GNLK MINGW64 /d/ZuchiD/DevOps/KLSDevOps Trainings/Sept 2021/GIT/git-blame-example (rebase-branch)
+KLSDEVOPS@LAPTOP-SME4GNLK MINGW64 /d/DevOps/KLSDevOps Trainings/Sept 2021/GIT/git-blame-example (rebase-branch)
 $ git status
 On branch rebase-branch
 Changes to be committed:
@@ -746,32 +833,32 @@ Changes to be committed:
         modified:   README.md
 
 
-KLSDEVOPS@LAPTOP-SME4GNLK MINGW64 /d/ZuchiD/DevOps/KLSDevOps Trainings/Sept 2021/GIT/git-blame-example (rebase-branch)
+KLSDEVOPS@LAPTOP-SME4GNLK MINGW64 /d/DevOps/KLSDevOps Trainings/Sept 2021/GIT/git-blame-example (rebase-branch)
 $
 
 #DURING THIS WORK IF YOU WANT TO WORK ON ANOTHER FEATURE, YOU CAN PUT THIS ON TO STASH
 
-KLSDEVOPS@LAPTOP-SME4GNLK MINGW64 /d/ZuchiD/DevOps/KLSDevOps Trainings/Sept 2021/GIT/git-blame-example (rebase-branch)
+KLSDEVOPS@LAPTOP-SME4GNLK MINGW64 /d/DevOps/KLSDevOps Trainings/Sept 2021/GIT/git-blame-example (rebase-branch)
 $ git stash
 Saved working directory and index state WIP on rebase-branch: 959d108 stasj
 
-KLSDEVOPS@LAPTOP-SME4GNLK MINGW64 /d/ZuchiD/DevOps/KLSDevOps Trainings/Sept 2021/GIT/git-blame-example (rebase-branch)
+KLSDEVOPS@LAPTOP-SME4GNLK MINGW64 /d/DevOps/KLSDevOps Trainings/Sept 2021/GIT/git-blame-example (rebase-branch)
 $ git status
 On branch rebase-branch
 nothing to commit, working tree clean
 
-KLSDEVOPS@LAPTOP-SME4GNLK MINGW64 /d/ZuchiD/DevOps/KLSDevOps Trainings/Sept 2021/GIT/git-blame-example (rebase-branch)
+KLSDEVOPS@LAPTOP-SME4GNLK MINGW64 /d/DevOps/KLSDevOps Trainings/Sept 2021/GIT/git-blame-example (rebase-branch)
 $
 
 #NOW CHECKOUT TO ANOTHER BRANCH AND PERFORM YOUR OTHER WORK
 
-KLSDEVOPS@LAPTOP-SME4GNLK MINGW64 /d/ZuchiD/DevOps/KLSDevOps Trainings/Sept 2021/GIT/git-blame-example (rebase-branch)
+KLSDEVOPS@LAPTOP-SME4GNLK MINGW64 /d/DevOps/KLSDevOps Trainings/Sept 2021/GIT/git-blame-example (rebase-branch)
 $ git checkout master 
 Switched to branch 'master'
 Your branch is ahead of 'origin/master' by 3 commits.
   (use "git push" to publish your local commits)
 
-KLSDEVOPS@LAPTOP-SME4GNLK MINGW64 /d/ZuchiD/DevOps/KLSDevOps Trainings/Sept 2021/GIT/git-blame-example (master)
+KLSDEVOPS@LAPTOP-SME4GNLK MINGW64 /d/DevOps/KLSDevOps Trainings/Sept 2021/GIT/git-blame-example (master)
 $ git status
 On branch master
 Your branch is ahead of 'origin/master' by 3 commits.
@@ -779,20 +866,20 @@ Your branch is ahead of 'origin/master' by 3 commits.
 
 nothing to commit, working tree clean
 
-KLSDEVOPS@LAPTOP-SME4GNLK MINGW64 /d/ZuchiD/DevOps/KLSDevOps Trainings/Sept 2021/GIT/git-blame-example (master)
+KLSDEVOPS@LAPTOP-SME4GNLK MINGW64 /d/DevOps/KLSDevOps Trainings/Sept 2021/GIT/git-blame-example (master)
 $
 
-KLSDEVOPS@LAPTOP-SME4GNLK MINGW64 /d/ZuchiD/DevOps/KLSDevOps Trainings/Sept 2021/GIT/git-blame-example (master)
+KLSDEVOPS@LAPTOP-SME4GNLK MINGW64 /d/DevOps/KLSDevOps Trainings/Sept 2021/GIT/git-blame-example (master)
 $ vi test
 
-KLSDEVOPS@LAPTOP-SME4GNLK MINGW64 /d/ZuchiD/DevOps/KLSDevOps Trainings/Sept 2021/GIT/git-blame-example (master)
+KLSDEVOPS@LAPTOP-SME4GNLK MINGW64 /d/DevOps/KLSDevOps Trainings/Sept 2021/GIT/git-blame-example (master)
 $ cat test 
 this is a new file
 
-KLSDEVOPS@LAPTOP-SME4GNLK MINGW64 /d/ZuchiD/DevOps/KLSDevOps Trainings/Sept 2021/GIT/git-blame-example (master)
+KLSDEVOPS@LAPTOP-SME4GNLK MINGW64 /d/DevOps/KLSDevOps Trainings/Sept 2021/GIT/git-blame-example (master)
 $
 
-KLSDEVOPS@LAPTOP-SME4GNLK MINGW64 /d/ZuchiD/DevOps/KLSDevOps Trainings/Sept 2021/GIT/git-blame-example (master)
+KLSDEVOPS@LAPTOP-SME4GNLK MINGW64 /d/DevOps/KLSDevOps Trainings/Sept 2021/GIT/git-blame-example (master)
 $ git status
 On branch master
 Your branch is ahead of 'origin/master' by 3 commits.
@@ -804,12 +891,12 @@ Untracked files:
 
 nothing added to commit but untracked files present (use "git add" to track)
 
-KLSDEVOPS@LAPTOP-SME4GNLK MINGW64 /d/ZuchiD/DevOps/KLSDevOps Trainings/Sept 2021/GIT/git-blame-example (master)
+KLSDEVOPS@LAPTOP-SME4GNLK MINGW64 /d/DevOps/KLSDevOps Trainings/Sept 2021/GIT/git-blame-example (master)
 $ git add .
 warning: LF will be replaced by CRLF in test.
 The file will have its original line endings in your working directory
 
-KLSDEVOPS@LAPTOP-SME4GNLK MINGW64 /d/ZuchiD/DevOps/KLSDevOps Trainings/Sept 2021/GIT/git-blame-example (master)
+KLSDEVOPS@LAPTOP-SME4GNLK MINGW64 /d/DevOps/KLSDevOps Trainings/Sept 2021/GIT/git-blame-example (master)
 $ git status
 On branch master
 Your branch is ahead of 'origin/master' by 3 commits.
@@ -820,13 +907,13 @@ Changes to be committed:
         new file:   test
 
 
-KLSDEVOPS@LAPTOP-SME4GNLK MINGW64 /d/ZuchiD/DevOps/KLSDevOps Trainings/Sept 2021/GIT/git-blame-example (master)
+KLSDEVOPS@LAPTOP-SME4GNLK MINGW64 /d/DevOps/KLSDevOps Trainings/Sept 2021/GIT/git-blame-example (master)
 $ git commit -m "added new file"
 [master 33e513e] added new file
  1 file changed, 1 insertion(+)
  create mode 100644 test
 
-KLSDEVOPS@LAPTOP-SME4GNLK MINGW64 /d/ZuchiD/DevOps/KLSDevOps Trainings/Sept 2021/GIT/git-blame-example (master)
+KLSDEVOPS@LAPTOP-SME4GNLK MINGW64 /d/DevOps/KLSDevOps Trainings/Sept 2021/GIT/git-blame-example (master)
 $ git status
 On branch master
 Your branch is ahead of 'origin/master' by 4 commits.
@@ -834,42 +921,42 @@ Your branch is ahead of 'origin/master' by 4 commits.
 
 nothing to commit, working tree clean
 
-KLSDEVOPS@LAPTOP-SME4GNLK MINGW64 /d/ZuchiD/DevOps/KLSDevOps Trainings/Sept 2021/GIT/git-blame-example (master)
+KLSDEVOPS@LAPTOP-SME4GNLK MINGW64 /d/DevOps/KLSDevOps Trainings/Sept 2021/GIT/git-blame-example (master)
 $
 
 #ONCE THE WORK IS COMMITTED, CHECKOUT BACK TO THE PREVIOUS BRANCH & POP THE STASH OUT
 
-KLSDEVOPS@LAPTOP-SME4GNLK MINGW64 /d/ZuchiD/DevOps/KLSDevOps Trainings/Sept 2021/GIT/git-blame-example (master)
+KLSDEVOPS@LAPTOP-SME4GNLK MINGW64 /d/DevOps/KLSDevOps Trainings/Sept 2021/GIT/git-blame-example (master)
 $ git checkout rebase-branch 
 Switched to branch 'rebase-branch'
 
-KLSDEVOPS@LAPTOP-SME4GNLK MINGW64 /d/ZuchiD/DevOps/KLSDevOps Trainings/Sept 2021/GIT/git-blame-example (rebase-branch)
+KLSDEVOPS@LAPTOP-SME4GNLK MINGW64 /d/DevOps/KLSDevOps Trainings/Sept 2021/GIT/git-blame-example (rebase-branch)
 $ git status
 On branch rebase-branch
 nothing to commit, working tree clean
 
-KLSDEVOPS@LAPTOP-SME4GNLK MINGW64 /d/ZuchiD/DevOps/KLSDevOps Trainings/Sept 2021/GIT/git-blame-example (rebase-branch)
+KLSDEVOPS@LAPTOP-SME4GNLK MINGW64 /d/DevOps/KLSDevOps Trainings/Sept 2021/GIT/git-blame-example (rebase-branch)
 $
 
 #TO LIST THE STASHES;
 
-KLSDEVOPS@LAPTOP-SME4GNLK MINGW64 /d/ZuchiD/DevOps/KLSDevOps Trainings/Sept 2021/GIT/git-blame-example (rebase-branch)
+KLSDEVOPS@LAPTOP-SME4GNLK MINGW64 /d/DevOps/KLSDevOps Trainings/Sept 2021/GIT/git-blame-example (rebase-branch)
 $ git stash list
 stash@{0}: WIP on rebase-branch: 959d108 stasj
 
-KLSDEVOPS@LAPTOP-SME4GNLK MINGW64 /d/ZuchiD/DevOps/KLSDevOps Trainings/Sept 2021/GIT/git-blame-example (rebase-branch)
+KLSDEVOPS@LAPTOP-SME4GNLK MINGW64 /d/DevOps/KLSDevOps Trainings/Sept 2021/GIT/git-blame-example (rebase-branch)
 $
 
 #TO SHOW THE FILES IN THE MOST RECENT STASHES;
 
-KLSDEVOPS@LAPTOP-SME4GNLK MINGW64 /d/ZuchiD/DevOps/KLSDevOps Trainings/Sept 2021/GIT/git-blame-example (rebase-branch)
+KLSDEVOPS@LAPTOP-SME4GNLK MINGW64 /d/DevOps/KLSDevOps Trainings/Sept 2021/GIT/git-blame-example (rebase-branch)
 $ git stash show
  README.md | 1 +
  1 file changed, 1 insertion(+)
 
 #SHOW THE CHANGES OF MOST RECENT STASHES;
 
-KLSDEVOPS@LAPTOP-SME4GNLK MINGW64 /d/ZuchiD/DevOps/KLSDevOps Trainings/Sept 2021/GIT/git-blame-example (rebase-branch)
+KLSDEVOPS@LAPTOP-SME4GNLK MINGW64 /d/DevOps/KLSDevOps Trainings/Sept 2021/GIT/git-blame-example (rebase-branch)
 $ git stash show -p stash@{0}
 diff --git a/README.md b/README.md
 index 0ce4e4c..25906d9 100644
@@ -882,12 +969,12 @@ index 0ce4e4c..25906d9 100644
 
  The repo use used elsewhere to demonstrate `git blame`
 
-KLSDEVOPS@LAPTOP-SME4GNLK MINGW64 /d/ZuchiD/DevOps/KLSDevOps Trainings/Sept 2021/GIT/git-blame-example (rebase-branch)
+KLSDEVOPS@LAPTOP-SME4GNLK MINGW64 /d/DevOps/KLSDevOps Trainings/Sept 2021/GIT/git-blame-example (rebase-branch)
 $ 
 
 #TO POP OUT THE PREVIOUS CHANGES FROM STASH 
 
-KLSDEVOPS@LAPTOP-SME4GNLK MINGW64 /d/ZuchiD/DevOps/KLSDevOps Trainings/Sept 2021/GIT/git-blame-example (rebase-branch)
+KLSDEVOPS@LAPTOP-SME4GNLK MINGW64 /d/DevOps/KLSDevOps Trainings/Sept 2021/GIT/git-blame-example (rebase-branch)
 $ git stash pop
 On branch rebase-branch
 Changes not staged for commit:
@@ -898,12 +985,12 @@ Changes not staged for commit:
 no changes added to commit (use "git add" and/or "git commit -a")
 Dropped refs/stash@{0} (df3b99446de5ab67570a357b2815cbd8d6b584a9)
 
-KLSDEVOPS@LAPTOP-SME4GNLK MINGW64 /d/ZuchiD/DevOps/KLSDevOps Trainings/Sept 2021/GIT/git-blame-example (rebase-branch)
+KLSDEVOPS@LAPTOP-SME4GNLK MINGW64 /d/DevOps/KLSDevOps Trainings/Sept 2021/GIT/git-blame-example (rebase-branch)
 $
 
 #COMMIT THE CHANGES
 
-KLSDEVOPS@LAPTOP-SME4GNLK MINGW64 /d/ZuchiD/DevOps/KLSDevOps Trainings/Sept 2021/GIT/git-blame-example (rebase-branch)
+KLSDEVOPS@LAPTOP-SME4GNLK MINGW64 /d/DevOps/KLSDevOps Trainings/Sept 2021/GIT/git-blame-example (rebase-branch)
 $ git status
 On branch rebase-branch
 Changes not staged for commit:
@@ -913,10 +1000,10 @@ Changes not staged for commit:
 
 no changes added to commit (use "git add" and/or "git commit -a")
 
-KLSDEVOPS@LAPTOP-SME4GNLK MINGW64 /d/ZuchiD/DevOps/KLSDevOps Trainings/Sept 2021/GIT/git-blame-example (rebase-branch)
+KLSDEVOPS@LAPTOP-SME4GNLK MINGW64 /d/DevOps/KLSDevOps Trainings/Sept 2021/GIT/git-blame-example (rebase-branch)
 $ git add .
 
-KLSDEVOPS@LAPTOP-SME4GNLK MINGW64 /d/ZuchiD/DevOps/KLSDevOps Trainings/Sept 2021/GIT/git-blame-example (rebase-branch)
+KLSDEVOPS@LAPTOP-SME4GNLK MINGW64 /d/DevOps/KLSDevOps Trainings/Sept 2021/GIT/git-blame-example (rebase-branch)
 $ git status
 On branch rebase-branch
 Changes to be committed:
@@ -924,20 +1011,20 @@ Changes to be committed:
         modified:   README.md
 
 
-KLSDEVOPS@LAPTOP-SME4GNLK MINGW64 /d/ZuchiD/DevOps/KLSDevOps Trainings/Sept 2021/GIT/git-blame-example (rebase-branch)
+KLSDEVOPS@LAPTOP-SME4GNLK MINGW64 /d/DevOps/KLSDevOps Trainings/Sept 2021/GIT/git-blame-example (rebase-branch)
 $
 
-KLSDEVOPS@LAPTOP-SME4GNLK MINGW64 /d/ZuchiD/DevOps/KLSDevOps Trainings/Sept 2021/GIT/git-blame-example (rebase-branch)
+KLSDEVOPS@LAPTOP-SME4GNLK MINGW64 /d/DevOps/KLSDevOps Trainings/Sept 2021/GIT/git-blame-example (rebase-branch)
 $ git commit -m "commit after stash"
 [rebase-branch 012b919] commit after stash
  1 file changed, 1 insertion(+)
 
-KLSDEVOPS@LAPTOP-SME4GNLK MINGW64 /d/ZuchiD/DevOps/KLSDevOps Trainings/Sept 2021/GIT/git-blame-example (rebase-branch)
+KLSDEVOPS@LAPTOP-SME4GNLK MINGW64 /d/DevOps/KLSDevOps Trainings/Sept 2021/GIT/git-blame-example (rebase-branch)
 $ git status
 On branch rebase-branch
 nothing to commit, working tree clean
 
-KLSDEVOPS@LAPTOP-SME4GNLK MINGW64 /d/ZuchiD/DevOps/KLSDevOps Trainings/Sept 2021/GIT/git-blame-example (rebase-branch)
+KLSDEVOPS@LAPTOP-SME4GNLK MINGW64 /d/DevOps/KLSDevOps Trainings/Sept 2021/GIT/git-blame-example (rebase-branch)
 $
 
 ```
