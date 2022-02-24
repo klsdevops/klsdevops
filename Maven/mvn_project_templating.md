@@ -35,9 +35,10 @@ mvn archetype:generate -DgroupId=com.example -DartifactId=maven-project -Darchet
 mvn clean package
 ```
 
-![image](https://user-images.githubusercontent.com/90503660/155461450-113ac279-118f-445d-8695-1f203ad8db09.png)
+![image](https://user-images.githubusercontent.com/90503660/155461773-861f440f-bd94-44ff-a355-3faf1666bfb1.png)
 
 # You could see a target folder has been created & the artifact file(.war) is generated there
 
-![image](https://user-images.githubusercontent.com/90503660/155461565-fc9e96f6-2d2e-4df6-9ffb-7250a0a9ec45.png)
+![image](https://user-images.githubusercontent.com/90503660/155461847-7cc00e64-9b27-4fde-aab0-66cb21ea80f1.png)
+
 
