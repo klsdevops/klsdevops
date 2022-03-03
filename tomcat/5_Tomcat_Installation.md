@@ -120,7 +120,47 @@ goto tomcat home directory and Add below users to conf/tomcat-users.xml file
 	<user username="tomcat" password="s3cret" roles="manager-gui"/>
    ```
    
-   ![image](https://user-images.githubusercontent.com/90503660/135749409-aa9f4058-34e0-47a5-8b33-ffdd96992093.png)
+   ![image](https://user-images.githubusercontent.com/90503660/135749409-aa9f4058-34e0-47a5-8b33-ffdd96992093.png)**
+
+**NOTE:** You could even encrypt this password as part of security.
+To encrypt the password, 
+
+Step 1: Edit  server.xml
+
+-add the diggest option to Realm line at server.xml which is located under conf directory.
+
+
+Before:
+```
+<Realm className="org.apache.catalina.realm.LockOutRealm">
+```
+After:
+```
+<Realm className="org.apache.catalina.realm.LockOutRealm" digest="md5">
+```
+
+![image](https://user-images.githubusercontent.com/90503660/156538974-d1aa29c9-b363-4d76-9bdb-3a0aad1b0a2e.png)
+
+Step 2: Create  encrypted password
+
+```
+cd /opt/apache-tomcat-8.5.76/conf
+vi server.xml
+```
+![image](https://user-images.githubusercontent.com/90503660/156539212-b26d94c9-27f8-4def-807e-10ea22f5cd35.png)
+
+Step 3:Replace the user's password to an encrypted one.
+
+-Replace value of user's "password" attribute in your tomcat-users.xml to <ENCRYPTED_PASSWORD>
+
+	
+```
+cd /opt/apache-tomcat-8.5.76/conf
+vi tomcat-users.xml
+```
+
+![image](https://user-images.githubusercontent.com/90503660/156539410-cbeae114-99fc-4794-9df6-302b8fd2c302.png)
+
 
 4. Restart serivce and try to login to tomcat application from the browser. User credentials for the user "tomcat". This time it should be Successful
 
