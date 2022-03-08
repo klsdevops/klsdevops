@@ -37,7 +37,7 @@ For writing the Declarative Pipeline Syntax, you can get help from the Declarati
     * Pipeline plugin, which is installed as part of the "suggested plugins"
   
   **Defining a Pipeline**
-  Both _Declarative_ and _Scripted Pipeline_ are DSLs to describe portions of your software delivery pipeline. Scripted Pipeline is written in a limited form of _Groovy syntax_.
+  Both _Declarative_ and _Scripted Pipeline_ are DSLs(Domain Specific Language) to describe portions of your software delivery pipeline. Scripted Pipeline is written in a limited form of _Groovy syntax_.
   A Pipeline can be created through the _Classic UI_ method or _In SCM_ write a _Jenkinsfile_ manually, which you can commit to your project’s source control repository. 
   
   ### Through Classic UI
