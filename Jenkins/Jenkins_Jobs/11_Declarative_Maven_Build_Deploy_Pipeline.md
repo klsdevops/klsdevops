@@ -7,9 +7,9 @@
 6. Tomcat Server setup
 
 # Refer the below document links for setting up Jenkins, Maven & Tomcat
-  https://github.com/klsdevops/klsdevops/blob/main/Jenkins/Jenkins_Installation.MD
-  https://github.com/klsdevops/klsdevops/blob/main/Jenkins/Maven_Installation.md
-  https://github.com/klsdevops/klsdevops/blob/main/tomcat/Tomcat_Installation.md
+  https://github.com/klsdevops/klsdevops/blob/main/Jenkins/1_Jenkins_Installation.MD
+  https://github.com/klsdevops/klsdevops/blob/main/Jenkins/2_Maven_Installation.md
+  https://github.com/klsdevops/klsdevops/blob/main/tomcat/5_Tomcat_Installation.md
   
 
 # Create a new item with "Pipeline" option
@@ -34,9 +34,9 @@ pipeline {
       jdk 'JAVA_HOME'
     }
     environment {
-      M2_HOME = "/opt/maven/apache-maven-3.8.2"
+      M2_HOME = "/opt/maven/apache-maven-3.8.4"
       M2 = "$M2_HOME/bin"
-      JAVA_HOME = "/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.302.b08-0.amzn2.0.1.x86_64"
+      JAVA_HOME = "/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.312.b07-1.amzn2.0.2.x86_64"
       PATH = "$M2_HOME:$M2:$JAVA_HOME/bin:$PATH"
     }
     stages {
