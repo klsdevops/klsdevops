@@ -7,9 +7,9 @@
 6. Tomcat server setup
 
 # Refer the below document links for setting up Jenkins, Maven & Tomcat
-  https://github.com/klsdevops/klsdevops/blob/main/Jenkins/Jenkins_Installation.MD
-  https://github.com/klsdevops/klsdevops/blob/main/Jenkins/Maven_Installation.md
-  https://github.com/klsdevops/klsdevops/blob/main/tomcat/Tomcat_Installation.md  
+  https://github.com/klsdevops/klsdevops/blob/main/Jenkins/1_Jenkins_Installation.MD
+  https://github.com/klsdevops/klsdevops/blob/main/Jenkins/2_Maven_Installation.md
+  https://github.com/klsdevops/klsdevops/blob/main/tomcat/5_Tomcat_Installation.md  
 
 # Create a new item with "Pipeline" option
 
@@ -33,7 +33,7 @@
 # Ensure you have a "Jenkinsfile" in you repository, if not create a "Jenkinsfile" in your repository with the below code snippet
 
 **NOTE:** You can always use the "Pipeline Syntax" option for writing the code snippet
-http://3.22.222.129:8080/job/maven-scm-pipeline/pipeline-syntax/
+http://[JENKINS-URL]/job/maven-scm-pipeline/pipeline-syntax/
 
 ```
 pipeline {
