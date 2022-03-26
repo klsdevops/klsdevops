@@ -7,12 +7,12 @@
 4. Install "Publish Over SSH" Plugin on Jenkins
 5. Configure connectivity to Docker Host in Jenkins
 
-## Install Docker on Jenkins Server/Deployment Server
+## Install Docker on Jenkins Server & Deployment Server
 
 Since we are using an Amazon EC2 server, go with the below URL for docker installation;
 https://github.com/klsdevops/klsdevops/blob/main/Docker/1_Docker_Installation.md
 
-## Create a "dockeradmin" user on the Docker Host & add it to the "docker" group
+## Create a "dockeradmin" user on the Docker Host(Deployment Server) & add it to the "docker" group
 
 ![image](https://user-images.githubusercontent.com/90503660/138026585-42128b1f-3775-4009-a265-e48d7fe3d533.png)
 
