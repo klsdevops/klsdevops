@@ -11,7 +11,7 @@
 
 ## 1. Install Docker on the Jenkins Server
 
-Refer https://github.com/klsdevops/klsdevops/blob/main/Docker/Docker_Installation.md
+Refer https://github.com/klsdevops/klsdevops/blob/main/Docker/1_Docker_Installation.md
 
 ## 2. Install "Cloudbees Docker Build and Publish" plugin
 
@@ -142,7 +142,7 @@ Now we need to deploy this application to a target deployment server. Hence we w
 
 ## 2. Install Docker on to it
 
-Refer https://github.com/klsdevops/klsdevops/blob/main/Docker/Docker_Installation.md
+Refer https://github.com/klsdevops/klsdevops/blob/main/Docker/1_Docker_Installation.md
 
 ## 3. Update the Jenkins Pipeline with the deployment steps
 
