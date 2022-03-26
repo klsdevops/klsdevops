@@ -10,7 +10,7 @@
 ## Install Docker on Jenkins Server/Deployment Server
 
 Since we are using an Amazon EC2 server, go with the below URL for docker installation;
-https://github.com/klsdevops/klsdevops/blob/main/Docker/Docker_Installation.md
+https://github.com/klsdevops/klsdevops/blob/main/Docker/1_Docker_Installation.md
 
 ## Create a "dockeradmin" user on the Docker Host & add it to the "docker" group
 
