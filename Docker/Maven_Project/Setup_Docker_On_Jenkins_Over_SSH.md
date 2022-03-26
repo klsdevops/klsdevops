@@ -14,6 +14,18 @@ https://github.com/klsdevops/klsdevops/blob/main/Docker/1_Docker_Installation.md
 
 ## Create a "dockeradmin" user on the Docker Host(Deployment Server) & add it to the "docker" group
 
+```
+sudo useradd dockeradmin
+```
+
+```
+sudo passwd dockeradmin
+```
+
+```
+sudo usermod -aG docker dockeradmin
+```
+
 ![image](https://user-images.githubusercontent.com/90503660/138026585-42128b1f-3775-4009-a265-e48d7fe3d533.png)
 
 ## Install "Publish Over SSH" Plugin on Jenkins
