@@ -64,6 +64,8 @@ You should be able to see the list of repositories in your DockerHub account
 
 Go to Jenkins Dashboard -> Manage Jenkins -> Manage Credentials -> Add Credentials(Global)
 
+Provide the DockerHub credentials here
+
 ![image](https://user-images.githubusercontent.com/90503660/138560354-d2e78f17-e6d9-4593-9ea6-17c09e0c86e0.png)
 
 ## 6. Ensure _jenkins_ user is part of the _docker_ group on the Jenkins Server
