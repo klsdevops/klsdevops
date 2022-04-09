@@ -1,0 +1,17 @@
+-
+  name: Install packages
+  hosts: all
+  become: true
+  tasks:
+          - name: install dependent packages
+            yum:
+              name: "{{ item }}"
+              state: present
+            with_items:
+              - httpd
+              - docker
+              - nano
+            when:
+              ansible_os_family=="Debian"
+
+            

@@ -1,0 +1,16 @@
+---
+- name: "Unnstalling nginx service"
+  hosts: all
+  remote_user: ansadmin
+  become: true
+
+  tasks:
+    - name: stop the nginx service
+      service:
+        name: nginx
+        state: stopped
+
+    - name: uninstall nginx
+      yum:
+        name: nginx
+        state: absent

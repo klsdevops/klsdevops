@@ -1,0 +1,15 @@
+## Install nginx on Amazon Linux 2
+---
+- name: "Installing software package and starting the service"
+  hosts: all
+  remote_user: ansadmin
+  become: true
+
+  tasks:
+    - name: install nginx
+      command: amazon-linux-extras install nginx1 -y
+
+    - name: start the nginx service
+      service:
+        name: nginx
+        state: started

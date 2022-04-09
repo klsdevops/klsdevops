@@ -1,0 +1,9 @@
+-
+  name: Copy files to target servers
+  hosts: all
+  tasks:
+    - name: Copy files
+      copy:
+        src: /home/klsdevops/myfile.txt
+        dest: /tmp/myfile.txt
+        

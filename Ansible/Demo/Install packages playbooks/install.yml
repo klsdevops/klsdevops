@@ -1,0 +1,25 @@
+---
+- name: "Installing software package and starting the service"
+  hosts: all
+  remote_user: ansadmin
+  become: true
+  vars:
+    pkg_name: docker
+
+  tasks:
+    - name: install {{ pkg_name }} latest version on Ubuntu
+      apt:
+        name: '{{ pkg_name }}'
+        state: latest
+      when: ansible_os_family == "Debian"
+
+    - name: install {{ pkg_name }} latest version on Redhat
+      yum:
+        name: '{{ pkg_name }}'
+        state: latest
+      when: ansible_os_family == "RedHat"
+
+    - name: start the {{ pkg_name }} service
+      service:
+        name: '{{ pkg_name }}'
+        state: started

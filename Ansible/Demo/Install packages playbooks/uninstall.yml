@@ -1,0 +1,18 @@
+---
+- name: "Uninstalling software package"
+  hosts: all
+  remote_user: ansadmin
+  become: true
+  vars:
+    pkg_name: httpd
+
+  tasks:
+    - name: stop the {{ pkg_name }} service
+      service:
+        name: '{{ pkg_name }}'
+        state: stopped
+
+    - name: uninstall {{ pkg_name }}
+      yum:
+        name: '{{ pkg_name }}'
+        state: absent
