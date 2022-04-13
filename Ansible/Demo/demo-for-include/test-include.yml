@@ -1,0 +1,10 @@
+- name: "Installing software package and starting the service"
+  hosts: all
+  remote_user: ansadmin
+  become: true
+  vars:
+    pkg_name: docker
+
+  tasks:
+  - include: tasks/install-package.yml
+  - include: tasks/start-service.yml

@@ -1,0 +1,11 @@
+- name: install {{ pkg_name }} latest version on Ubuntu
+  apt:
+    name: '{{ pkg_name }}'
+    state: latest
+  when: ansible_os_family == "Debian"
+
+- name: install {{ pkg_name }} latest version on Redhat
+  yum:
+    name: '{{ pkg_name }}'
+    state: latest
+  when: ansible_os_family == "RedHat"

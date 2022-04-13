@@ -1,0 +1,4 @@
+- name: start the {{ pkg_name }} service
+  service:
+    name: '{{ pkg_name }}'
+    state: started
