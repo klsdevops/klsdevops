@@ -1,9 +1,0 @@
-- name: "Installing software package and starting the service"
-  hosts: ec2-server
-  remote_user: ansadmin
-  become: true
-  vars:
-    pkg_name: docker
-  roles:
-    - install-packages
-    - copy-files
