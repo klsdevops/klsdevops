@@ -1,6 +1,0 @@
----
-# tasks file for copy-files
-- name: "copy files"
-  copy:
-    src: testfile
-    dest: /opt/
